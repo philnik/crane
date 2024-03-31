@@ -1,0 +1,39 @@
+fpprintprec:3$
+
+
+k:(P/(E1*I1))^0.5$
+
+
+eq1: M = (W/(2*k)) * tan(k*l/2)$
+disp(tex(eq1));
+P:46000$
+E1:200*10^9$
+/*
+I1:3.178*10^6*10^(-12)$
+l:1.5;
+*/
+I1:5.412*10^6*10^(-12)$
+l:2.4;
+
+
+print("k=",k);
+M1 = W*sin(k*(l-a))*sin(k*a)/k*sin(k*l)$
+M2 = W*sin(k*(l-a))/k*sin(k*l)$
+
+W:27140;
+print("$$W=",W,"N$$");
+
+print("$$l=",l,"m$$");
+M : (W/(2*k)) * tan(k*l/2);
+print("$$M=",M,"Nm$$");
+
+
+eq10: sigma = M_max * C / I$
+print(tex(eq10));
+M_max:M;
+c:80e-3;
+c:120e-3;
+I:I1;
+s:M*c/I;
+print("$$σ=",s,"N/m^2$$");
+

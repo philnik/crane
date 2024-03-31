@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="el" xml:lang="el">
+<head>
+<!-- 2023-04-25 Tue 16:26 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>crane_roller</title>
+<meta name="keywords" content="o" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/bigblow_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/bigblow_theme/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/bigblow_theme/css/hideshow.css"/>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/bigblow.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/hideshow.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<style> #content{max-width:1800px;}</style>
+<style> p{max-width:800px;}</style>
+<style> li{max-width:800px;}</style
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">crane<sub>roller</sub></h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgce15ca6">1. Δυναμη ανύψωσης</a></li>
+<li><a href="#org55b646b">2. Ροδες κύλισης</a></li>
+<li><a href="#org5964e8f">3. Αξονας ρουλεμαν</a></li>
+<li><a href="#orgef77ec5">4. Σχέδια στηριξης</a></li>
+<li><a href="#orga3952bf">5. Σχέδια ρουλεμαν</a></li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgce15ca6" class="outline-2">
+<h2 id="orgce15ca6"><span class="section-number-2">1.</span> Δυναμη ανύψωσης</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Η μεγιστη δύναμη ανύψωσης είναι:<br />
+</p>
+<table id="orgb8fada4" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Είδος δύναμης</th>
+<th scope="col" class="org-right">Τιμή(Ν)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Μέγιστη δυνατότητα ανύψωσης:</td>
+<td class="org-right">20000</td>
+</tr>
+
+<tr>
+<td class="org-left">Συρματόσχοινο:</td>
+<td class="org-right">860</td>
+</tr>
+
+<tr>
+<td class="org-left">Γαντζος</td>
+<td class="org-right">70</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Αθροισμα:</td>
+<td class="org-right">20930</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">20,930kN</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+Η δύναμη θα ισομοιραστεί σε 8 ρόδες κύλισης πάνω στη δοκό.<br />
+</p>
+
+<p>
+Η δύναμη σε κάθε ρόδα είναι:<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Δύναμη ανύψωσης :</td>
+<td class="org-right">20930</td>
+<td class="org-left">Ν</td>
+</tr>
+
+<tr>
+<td class="org-left">Δύναμη μηχανισμού ανύψωσης</td>
+<td class="org-right">1000</td>
+<td class="org-left">Ν</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Άθροισμα:</td>
+<td class="org-right">21930</td>
+<td class="org-left">Ν</td>
+</tr>
+
+<tr>
+<td class="org-left">Αριθμός ροδών κύλισης</td>
+<td class="org-right">8</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Δύναμη σε κάθε ρόδα</td>
+<td class="org-right">2741,25</td>
+<td class="org-left">N</td>
+</tr>
+
+<tr>
+<td class="org-left">Εδρανα κύλισης ανά ρόδα:</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Κάθετη δύναμη στο έδρανο κύλισης*</td>
+<td class="org-right">1370,625</td>
+<td class="org-left">N</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+*Η δύναμη σε κάθε έδρανο κύλισης εξαρτάται και από τον τρόπο στήριξης και μπορεί να είναι διαφορετική σε κάθε έδρανο.<br />
+</p>
+
+<p>
+<a href="https://www.skf.com/in/products/rolling-bearings/ball-bearings/deep-groove-ball-bearings/productid-6000">https://www.skf.com/in/products/rolling-bearings/ball-bearings/deep-groove-ball-bearings/productid-6000</a><br />
+</p>
+
+<p>
+Επιλέγονται ρουλεμαν SKF 10-6000<br />
+</p>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Bore diameter</td>
+<td class="org-left">10 mm</td>
+</tr>
+
+<tr>
+<td class="org-left">Outside diameter</td>
+<td class="org-left">26 mm</td>
+</tr>
+
+<tr>
+<td class="org-left">Width</td>
+<td class="org-left">8 m</td>
+</tr>
+
+<tr>
+<td class="org-left">Basic dynamic load rating</td>
+<td class="org-left">4,75 kN</td>
+</tr>
+
+<tr>
+<td class="org-left">Basic static load rating</td>
+<td class="org-left">1,96 kN</td>
+</tr>
+
+<tr>
+<td class="org-left">Limiting speed</td>
+<td class="org-left">40 000 r/min</td>
+</tr>
+
+<tr>
+<td class="org-left">Reference speed</td>
+<td class="org-left">67 000 r/min</td>
+</tr>
+
+<tr>
+<td class="org-left">SKF performance class</td>
+<td class="org-left">SKF Explorer</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<div id="orgd99d582" class="figure">
+<p><img src="./images/roller_bearing0.jpg" alt="roller_bearing0.jpg" /><br />
+</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org55b646b" class="outline-2">
+<h2 id="org55b646b"><span class="section-number-2">2.</span> Ροδες κύλισης</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Επιλέγονται 8 ρόδες με εξωτερική διάμετρο 34mm και πλάτος 30mm<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Εξωτερική διάμετρος</th>
+<th scope="col" class="org-left">Παχος [t]</th>
+<th scope="col" class="org-left">Εσωτερική διάμετρος</th>
+<th scope="col" class="org-left">μαζα [m]</th>
+<th scope="col" class="org-left">Επιφάνεια [Α]</th>
+<th scope="col" class="org-left">Ροπή αδράνειας [I]</th>
+<th scope="col" class="org-left">Section modulus</th>
+<th scope="col" class="org-left">Radius of gyration</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">mm</th>
+<th scope="col" class="org-left">mm</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">Kg/m</th>
+<th scope="col" class="org-left">cm<sup>2</sup></th>
+<th scope="col" class="org-left">cm<sup>4</sup></th>
+<th scope="col" class="org-left">cm<sup>3</sup></th>
+<th scope="col" class="org-left">cm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">34,0</td>
+<td class="org-left">3,2</td>
+<td class="org-left">27,6</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<p>
+<a href="https://www.karl-georg.de/images/sortiment_laufraeder/pdf/en/crane_wheels-general_information.pdf">https://www.karl-georg.de/images/sortiment_laufraeder/pdf/en/crane_wheels-general_information.pdf</a><br />
+</p>
+
+<p>
+Τα ρουλεμαν λιπαινονται με γρασο, λογω του χαμηλού αριθμού στροφών.<br />
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org5964e8f" class="outline-2">
+<h2 id="org5964e8f"><span class="section-number-2">3.</span> Αξονας ρουλεμαν</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Ο αξονας επιλέγεται με βάση τα ρουλεμαν 10mm<br />
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgef77ec5" class="outline-2">
+<h2 id="orgef77ec5"><span class="section-number-2">4.</span> Σχέδια στηριξης</h2>
+<div class="outline-text-2" id="text-4">
+
+<div id="org3376fd2" class="figure">
+<p><img src="./images/roller0.jpg" alt="roller0.jpg" /><br />
+</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orga3952bf" class="outline-2">
+<h2 id="orga3952bf"><span class="section-number-2">5.</span> Σχέδια ρουλεμαν</h2>
+<div class="outline-text-2" id="text-5">
+
+<div id="org211370e" class="figure">
+<p><img src="./images/roller_detail.jpg" alt="roller_detail.jpg" /><br />
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

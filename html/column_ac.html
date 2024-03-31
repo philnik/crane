@@ -1,0 +1,980 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-04-22 Σαβ 01:09 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="author" content="Nikolakopoulos Filippos" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org9918848">1. Υπολογισμός ραβδου (BC)</a></li>
+<li><a href="#orgc9f6d22">2. Υπολογισμός σε λυγισμό</a></li>
+<li><a href="#org5576f97">3. Απαιτούμενη αδράνεια για λυγισμό</a></li>
+<li><a href="#org8b8adb5">4. Υπολογισμός σε κάμψη</a>
+<ul>
+<li><a href="#org6663f57">4.1. Με δοκό ΗΕΑ</a></li>
+<li><a href="#org94cdaab">4.2. Με δοκο IPN</a></li>
+<li><a href="#orgb193dab">4.3. Επιλογή ράβδου</a></li>
+<li><a href="#org797ed14">4.4. maxima</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org9918848" class="outline-2">
+<h2 id="org9918848"><span class="section-number-2">1.</span> Υπολογισμός ραβδου (BC)</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Η δοκός καταπονείται (AC) σε θλίψη.
+</p>
+
+<p>
+Οι εξισώσεις της αξονικής φόρτισης είναι:
+</p>
+
+<p>
+\[\sigma = \frac{P}{A}\]
+</p>
+
+<p>
+\[\epsilon = \frac{\sigma}{E}\]
+</p>
+
+<p>
+\[\delta = \frac{P \times l}{A \times E}\]
+</p>
+
+
+<table id="orgb12c04a" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Μήκος ράβδου</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">3000</td>
+<td class="org-left">mm</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">P</td>
+<td class="org-left">\(C_x\)</td>
+<td class="org-right">46</td>
+<td class="org-left">kΝ</td>
+<td class="org-left">εφελκυσμός στη ραβδο (ΒC)</td>
+</tr>
+
+<tr>
+<td class="org-left">Τάση διαρροής (0.2%) :</td>
+<td class="org-left">σ</td>
+<td class="org-right">370</td>
+<td class="org-left">MPa</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Επιφάνεια δοκού</td>
+<td class="org-left">\(Α=P/σ\)</td>
+<td class="org-right">1.2432432e-4</td>
+<td class="org-left">m<sup>2</sup></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">1.2</td>
+<td class="org-left">cm<sup>2</sup></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">ενταση:</td>
+<td class="org-left">\(ε=σ/Ε\)</td>
+<td class="org-right">1.85e-3</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Μετατόπιση:</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">5.55</td>
+<td class="org-left">mm</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+Επομένως στο όριο της δύναμης και τάση διαρροής, η ράβδος πρέπει να έχει επιφάνεια: \(Α:1.24\times10^{(-4)}m^2\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc9f6d22" class="outline-2">
+<h2 id="orgc9f6d22"><span class="section-number-2">2.</span> Υπολογισμός σε λυγισμό</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Η ράβδος καταπονείται σε θλίψη, και εξετάζεται και ως προς την αντοχή της σε λυγισμό.
+</p>
+
+
+<p>
+\[P_1 = K1 \frac{π^2*Ε_1*Ι_1}{l^2}\]
+</p>
+
+<p>
+Από τον πίνακα 15.1 περίπτωση 1c
+</p>
+
+
+<div id="org37bb8dc" class="figure">
+<p><img src="file:///home/me/crane/table2.jpg" alt="table2.jpg" />
+</p>
+</div>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">K<sub>1</sub></td>
+<td class="org-right">1.0</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">E1</td>
+<td class="org-right">200*10<sup>9</sup></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Pa</td>
+</tr>
+
+<tr>
+<td class="org-left">I1</td>
+<td class="org-right">0.669*10<sup>-8</sup></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">m4</td>
+</tr>
+
+<tr>
+<td class="org-left">l</td>
+<td class="org-right">3</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">m</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">1466</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">N</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org5576f97" class="outline-2">
+<h2 id="org5576f97"><span class="section-number-2">3.</span> Απαιτούμενη αδράνεια για λυγισμό</h2>
+<div class="outline-text-2" id="text-3">
+
+<div id="orgd54d385" class="figure">
+<p><img src="file:///home/me/crane/table1.jpg" alt="table1.jpg" />
+</p>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">K<sub>1</sub></td>
+<td class="org-right">0.5</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">E1</td>
+<td class="org-right">200*10<sup>9</sup></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Pa</td>
+</tr>
+
+<tr>
+<td class="org-left">P</td>
+<td class="org-right">46000</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">N</td>
+</tr>
+
+<tr>
+<td class="org-left">l</td>
+<td class="org-right">3</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">m</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">(P*l<sup>2</sup>)/(pi<sup>2</sup>*E1*K1)</td>
+<td class="org-right">4.1989533e-7</td>
+<td class="org-left">m<sup>4</sup></td>
+<td class="org-left">I</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">41.989533</td>
+<td class="org-left">cm<sup>4</sup></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">0.41989533</td>
+<td class="org-left">10<sup>6</sup> mm<sup>4</sup></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Ο συντελεστής Κ1 εξαρτάται από το είδος της φόρτισης και θεωρείται  δυσμενέστερη περίπτωση \(Κ1=0.507\) για ενδιάμεσο φορτίο. 
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org8b8adb5" class="outline-2">
+<h2 id="org8b8adb5"><span class="section-number-2">4.</span> Υπολογισμός σε κάμψη</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Η οριζόντια ράβδος υπολογιζεται και ως προς την αντοχή της σε κάμψη, λόγω της οριζόντιας κίνησης του φορτίου.
+</p>
+</div>
+
+
+
+
+
+
+
+<div id="outline-container-org6663f57" class="outline-3">
+<h3 id="org6663f57"><span class="section-number-3">4.1.</span> Με δοκό ΗΕΑ</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+<a href="https://eurocodeapplied.com/design/en1993/ipe-hea-heb-hem-design-properties">https://eurocodeapplied.com/design/en1993/ipe-hea-heb-hem-design-properties</a>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Profile</th>
+<th scope="col" class="org-right"><b>HEA100</b></th>
+<th scope="col" class="org-right">HEA120</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Drawing</td>
+<td class="org-right">dxf</td>
+<td class="org-right">dxf</td>
+</tr>
+
+<tr>
+<td class="org-left">Depth  h  [mm]</td>
+<td class="org-right">96</td>
+<td class="org-right">114</td>
+</tr>
+
+<tr>
+<td class="org-left">Width  b  [mm]</td>
+<td class="org-right">100</td>
+<td class="org-right">120</td>
+</tr>
+
+<tr>
+<td class="org-left">Web thickness  tw  [mm]</td>
+<td class="org-right">5</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-left">Flange thickness  tf  [mm]</td>
+<td class="org-right">8</td>
+<td class="org-right">8</td>
+</tr>
+
+<tr>
+<td class="org-left">Root radius  r  [mm]</td>
+<td class="org-right">12</td>
+<td class="org-right">12</td>
+</tr>
+
+<tr>
+<td class="org-left">Weight  m  [kg/m]</td>
+<td class="org-right">16.7</td>
+<td class="org-right">19.9</td>
+</tr>
+
+<tr>
+<td class="org-left">Perimeter  P  [m]</td>
+<td class="org-right">0.561</td>
+<td class="org-right">0.677</td>
+</tr>
+
+<tr>
+<td class="org-left">Area  A  [mm2]</td>
+<td class="org-right">2124</td>
+<td class="org-right">2534</td>
+</tr>
+
+<tr>
+<td class="org-left">Shear area z-z  Av,z  [mm2]  (for η=1.2)</td>
+<td class="org-right">756</td>
+<td class="org-right">846</td>
+</tr>
+
+<tr>
+<td class="org-left">Shear area y-y  Av,y  [mm2]</td>
+<td class="org-right">1600</td>
+<td class="org-right">1920</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Second moment of area  Iy</b>  [×106 mm4]</td>
+<td class="org-right"><b>3.492</b></td>
+<td class="org-right">6.062</td>
+</tr>
+
+<tr>
+<td class="org-left">Radius of gyration  iy  [mm]</td>
+<td class="org-right">40.6</td>
+<td class="org-right">48.9</td>
+</tr>
+
+<tr>
+<td class="org-left">Elastic section modulus  Wel,y  [×103 mm3]</td>
+<td class="org-right">72.76</td>
+<td class="org-right">106.3</td>
+</tr>
+
+<tr>
+<td class="org-left">Plastic section modulus  Wpl,y  [×103 mm3]</td>
+<td class="org-right">83.01</td>
+<td class="org-right">119.5</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org94cdaab" class="outline-3">
+<h3 id="org94cdaab"><span class="section-number-3">4.2.</span> Με δοκο IPN</h3>
+<div class="outline-text-3" id="text-4-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Profile</th>
+<th scope="col" class="org-right"><b>IPE80</b></th>
+<th scope="col" class="org-right">IPE100</th>
+<th scope="col" class="org-right">IPE120</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Depth  h  [mm]</td>
+<td class="org-right">80</td>
+<td class="org-right">100</td>
+<td class="org-right">120</td>
+</tr>
+
+<tr>
+<td class="org-left">Width  b  [mm]</td>
+<td class="org-right">46</td>
+<td class="org-right">55</td>
+<td class="org-right">64</td>
+</tr>
+
+<tr>
+<td class="org-left">Web thickness  tw  [mm]</td>
+<td class="org-right">3.8</td>
+<td class="org-right">4.1</td>
+<td class="org-right">4.4</td>
+</tr>
+
+<tr>
+<td class="org-left">Flange thickness  tf  [mm]</td>
+<td class="org-right">5.2</td>
+<td class="org-right">5.7</td>
+<td class="org-right">6.3</td>
+</tr>
+
+<tr>
+<td class="org-left">Root radius  r  [mm]</td>
+<td class="org-right">5</td>
+<td class="org-right">7</td>
+<td class="org-right">7</td>
+</tr>
+
+<tr>
+<td class="org-left">Weight  m  [kg/m]</td>
+<td class="org-right">6</td>
+<td class="org-right">8.1</td>
+<td class="org-right">10.4</td>
+</tr>
+
+<tr>
+<td class="org-left">Perimeter  P  [m]</td>
+<td class="org-right">0.328</td>
+<td class="org-right">0.4</td>
+<td class="org-right">0.475</td>
+</tr>
+
+<tr>
+<td class="org-left">Area  A  [mm2]</td>
+<td class="org-right">764</td>
+<td class="org-right">1032</td>
+<td class="org-right">1321</td>
+</tr>
+
+<tr>
+<td class="org-left">Shear area z-z  Av,z  [mm2]  (for η=1.2)</td>
+<td class="org-right">358</td>
+<td class="org-right">508</td>
+<td class="org-right">631</td>
+</tr>
+
+<tr>
+<td class="org-left">Shear area y-y  Av,y  [mm2]</td>
+<td class="org-right">478</td>
+<td class="org-right">627</td>
+<td class="org-right">806</td>
+</tr>
+
+<tr>
+<td class="org-left">Second moment of area  Iy  [×106 mm4]</td>
+<td class="org-right"><b>0.8014</b></td>
+<td class="org-right">1.71</td>
+<td class="org-right">3.178</td>
+</tr>
+
+<tr>
+<td class="org-left">Radius of gyration  iy  [mm]</td>
+<td class="org-right">32.4</td>
+<td class="org-right">40.7</td>
+<td class="org-right">49</td>
+</tr>
+
+<tr>
+<td class="org-left">Elastic section modulus  Wel,y  [×103 mm3]</td>
+<td class="org-right">20.03</td>
+<td class="org-right">34.2</td>
+<td class="org-right">52.96</td>
+</tr>
+
+<tr>
+<td class="org-left">Plastic section modulus  Wpl,y  [×103 mm3]</td>
+<td class="org-right">23.22</td>
+<td class="org-right">39.41</td>
+<td class="org-right">60.73</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+<div class="org-src-container">
+<pre class="src src-maxima" id="orgde78b95">fpprintprec:3$
+
+eq1: P=K1*%pi^2*E1*I1/l^2$
+eq2: solve(eq1,I1);
+print(tex(eq2));
+print(eq2);
+</pre>
+</div>
+<p>
+\[\left[ I_{1}={{P\,l^2}\over{\pi^2\,E_{1}\,K_{1}}} \right] \]
+false 
+            2
+         P l
+[I1 = -----&#x2013;&#x2014;] 
+         2
+      %pi  E1 K1
+</p>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-orgb193dab" class="outline-3">
+<h3 id="orgb193dab"><span class="section-number-3">4.3.</span> Επιλογή ράβδου</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+Η ράβδος (ΒC) επιλέγεται από τον πίνακα
+<a href="https://www.nspc.nipponsteel.com/en/products/building_kenchiku.html">https://www.nspc.nipponsteel.com/en/products/building_kenchiku.html</a>
+</p>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Εξωτερική διάμετρος</th>
+<th scope="col" class="org-right">Παχος [t]</th>
+<th scope="col" class="org-right">μαζα [m]</th>
+<th scope="col" class="org-right">Επιφάνεια [Α]</th>
+<th scope="col" class="org-right">Ροπή αδράνειας [I]</th>
+<th scope="col" class="org-right">Section modulus</th>
+<th scope="col" class="org-right">Radius of gyration</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-right">mm</th>
+<th scope="col" class="org-right">mm</th>
+<th scope="col" class="org-right">Kg/m</th>
+<th scope="col" class="org-right">cm<sup>2</sup></th>
+<th scope="col" class="org-right">cm<sup>4</sup></th>
+<th scope="col" class="org-right">cm<sup>3</sup></th>
+<th scope="col" class="org-right">cm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">21.7</td>
+<td class="org-right">2.3</td>
+<td class="org-right">1.10</td>
+<td class="org-right">1.402</td>
+<td class="org-right">0.669</td>
+<td class="org-right">0.616</td>
+<td class="org-right">0.691</td>
+</tr>
+
+<tr>
+<td class="org-right">27.2</td>
+<td class="org-right">1.9</td>
+<td class="org-right">1.19</td>
+<td class="org-right">1.510</td>
+<td class="org-right">1.22</td>
+<td class="org-right">0.893</td>
+<td class="org-right">0.897</td>
+</tr>
+
+<tr>
+<td class="org-right">27.2</td>
+<td class="org-right">2.3</td>
+<td class="org-right">1.41</td>
+<td class="org-right">1.799</td>
+<td class="org-right">1.41</td>
+<td class="org-right">1.03</td>
+<td class="org-right">0.884</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+H μικρότερη ράβδος που καλύπτει την αντοχή επιφάνειας με \(Α>1.46cm^2\) είναι η ράβδος 27.2x1.9 με μήκος 3150mm
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org797ed14" class="outline-3">
+<h3 id="org797ed14"><span class="section-number-3">4.4.</span> maxima</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+programmode:false;
+</p>
+
+<div class="org-src-container">
+<pre class="src src-maxima" id="org2aaa4cb">fpprintprec:3$
+
+eq1: sigma = P/A$
+print(tex(eq1));
+
+eq2: e = sigma / E$
+print(tex(eq2));
+
+eq3: delta = (P*l) / (A*E)$
+print(tex(eq3))$
+
+eq10a:solve(eq1,A)$
+print(tex(eq10a));
+
+P:54.28$
+print("$$P:",P,"kN$$");
+
+sigma:370$
+print("$$σ:",370,"MPa$$");
+
+A:(P*10^3) / (sigma*10^6) $
+print("$$A:",A,"m^2$$");
+
+E:200*10^9$
+epsilon:sigma/E$
+epsilon:(sigma*10^6) / E,numer$
+print("$$ε:",epsilon,"$$");
+
+l:3150$
+delta: P*l / (A*E);
+print("$$delta:",delta,"m$$");
+</pre>
+</div>
+
+
+<p>
+\[\sigma={{P}\over{A}}\]
+false 
+\[e={{\sigma}\over{E}}\]
+false 
+\[\delta={{P\,l}\over{A\,E}}\]
+false 
+\[\left[ A={{P}\over{\sigma}} \right] \]
+false 
+\[P: 54.2 kN\] 
+\[σ: 370 MPa\] 
+\[A: 1.46E-4 m^2\] 
+\[ε: 0.00185 \] 
+\[delta: 0.00582 m\] 
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Nikolakopoulos Filippos</p>
+<p class="date">Created: 2023-04-22 Σαβ 01:09</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

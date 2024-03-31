@@ -1,0 +1,1246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="el" xml:lang="el">
+<head>
+<!-- 2023-04-25 Tue 16:27 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>winch</title>
+<meta name="keywords" content="o" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/bigblow_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/bigblow_theme/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/bigblow_theme/css/hideshow.css"/>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/bigblow.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/hideshow.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<style> #content{max-width:1800px;}</style>
+<style> p{max-width:800px;}</style>
+<style> li{max-width:800px;}</style
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">winch</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgb8cfd93">1. Δεδομένα</a></li>
+<li><a href="#org8db0b13">2. Υπολογισμός</a></li>
+<li><a href="#orga46908c">3. Δύναμη ανύψωσης</a></li>
+<li><a href="#orgab18bf4">4. Υπολογισμός συστήματος ανύψωσης</a>
+<ul>
+<li><a href="#org312d09a">4.1. Ισχύς ανύψωσης</a></li>
+<li><a href="#org7483959">4.2. Ροπή στρέψης τυμπάνου περιελιξης</a></li>
+<li><a href="#org5c37370">4.3. Στροφές τυμπάνου περιέλιξης</a></li>
+<li><a href="#orgfd7130e">4.4. Επιλογή ανεμιστήρα</a></li>
+<li><a href="#org256455a">4.5. Επιλογή συρματόσχοινο</a></li>
+<li><a href="#org114324f">4.6. Διαστάσεις σωλήνα συρματοσχοινου</a></li>
+<li><a href="#org2392c3b">4.7. Αξονας στρέψης συρματόσχοινου</a></li>
+<li><a href="#org9194302">4.8. Ρουλεμαν</a></li>
+<li><a href="#org21a2eb8">4.9. Εσωτερική σωλήνα συρματοσχοινου</a></li>
+<li><a href="#org7cbbc90">4.10. Επιλογή μειωτήρα</a>
+<ul>
+<li><a href="#org77c0313">4.10.1. Σχεσεις μετάδοσης</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org9bfa526">5. Πλανητικός μειωτήρας</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgb8cfd93" class="outline-2">
+<h2 id="orgb8cfd93"><span class="section-number-2">1.</span> Δεδομένα</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Δεδομένα συστήματος:<br />
+    • L=3000 mm, R2=2800mm, R1=960mm, H=1950 mm<br />
+    • Διάμετρος τυμπάνου περιέλιξης συρματόσχοινου: 350 mm<br />
+    • Μέγιστο βάρος συρματόσχοινου: 86 Krg<br />
+    • Βάτος γάντζου ανύψωσης: 7 Krg<br />
+    • Μέγιστη ταχύτητα ανύψωσης: 12 m/min<br />
+    • Συνολικό βάρος γερανού: 621 Kgr<br />
+</p>
+
+<p>
+Ζητούμενα:<br />
+</p>
+</div>
+</div>
+
+
+
+
+
+<div id="outline-container-org8db0b13" class="outline-2">
+<h2 id="org8db0b13"><span class="section-number-2">2.</span> Υπολογισμός</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Μέρος 1 (40 Βαθμοί)<br />
+Υπολογίστε και επιλέξτε:<br />
+    • Το είδος του μειωτήρα με στόχο την επίτευξη της μέγιστης ταχύτητας ανύψωσης<br />
+    • Τον ολικό βαθμό μείωσης<br />
+    • Τον κατάλληλο ηλεκτροκινητήρα με στόχο την ανύψωση και συγκράτηση του ανυψούμενου βάρους<br />
+    • Τις διαστάσεις του συνόλου του μειωτήρα (πχ, των χρησιμοποιούμενων γραναζιών, σφηνών, αξόνων, αποστάσεων, ανοχών, ρουλεμάν κ.α.) ώστε να εμπίπτει στις προδιαγραφές μαζί με τους απαραίτητους  υπολογιστικούς ελέγχους.<br />
+    • Δημιουργία του 3D μοντέλου του μειωτήρα μαζί με τα κατάλληλα κατασκευαστικά σχέδια τόσο των επιμέρους εξαρτημάτων όσο και του συναρμολογήματος (συμπεριλαμβάνετε η βάση και το καπάκι).<br />
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orga46908c" class="outline-2">
+<h2 id="orga46908c"><span class="section-number-2">3.</span> Δύναμη ανύψωσης</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Η μεγιστη δύναμη ανύψωσης είναι:<br />
+</p>
+<table id="orgdb5615f" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Είδος δύναμης</th>
+<th scope="col" class="org-right">Τιμή(Ν)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Μέγιστη δυνατότητα ανύψωσης:</td>
+<td class="org-right">20000</td>
+</tr>
+
+<tr>
+<td class="org-left">Συρματόσχοινο:</td>
+<td class="org-right">860</td>
+</tr>
+
+<tr>
+<td class="org-left">Γαντζος</td>
+<td class="org-right">70</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Αθροισμα δύναμης F:</td>
+<td class="org-right">20930</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">20,930kN</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgab18bf4" class="outline-2">
+<h2 id="orgab18bf4"><span class="section-number-2">4.</span> Υπολογισμός συστήματος ανύψωσης</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org312d09a" class="outline-3">
+<h3 id="org312d09a"><span class="section-number-3">4.1.</span> Ισχύς ανύψωσης</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+H απαιτούμενη ισχύς είναι:<br />
+</p>
+
+<p>
+\[W_{lift} = F \times u\],<br />
+</p>
+
+<p>
+όπου F η δύναμη ανύψωσης \(F = 21kN\)<br />
+u η ταχύτητα ανύψωσης \(u = 12\frac{m}{min}\)<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Δυναμη ανύψωσης [F]</td>
+<td class="org-right">21</td>
+<td class="org-left">kN</td>
+</tr>
+
+<tr>
+<td class="org-left">Ταχύτητα ανύψωσης [u]</td>
+<td class="org-right">12</td>
+<td class="org-left">\(m/min\)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">W<sub>lift</sub></td>
+<td class="org-right">4200.</td>
+<td class="org-left">W</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org7483959" class="outline-3">
+<h3 id="org7483959"><span class="section-number-3">4.2.</span> Ροπή στρέψης τυμπάνου περιελιξης</h3>
+<div class="outline-text-3" id="text-4-2">
+
+<div id="org63c29b9" class="figure">
+<p><img src="./images/winch0.jpg" alt="winch0.jpg" /><br />
+</p>
+</div>
+
+
+
+<p>
+Η ροπή στρέψης από την ανύψωση του φορτίου είναι:<br />
+</p>
+
+<p>
+\[Μ_{lift} = F \times R \]<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Δυναμη ανύψωσης [F]</td>
+<td class="org-right">21</td>
+<td class="org-left">kN</td>
+</tr>
+
+<tr>
+<td class="org-left">Διάμετρος τυμπάνου</td>
+<td class="org-right">350</td>
+<td class="org-left">mm</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">M<sub>lift</sub></td>
+<td class="org-right">3,675</td>
+<td class="org-left">N*m</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org5c37370" class="outline-3">
+<h3 id="org5c37370"><span class="section-number-3">4.3.</span> Στροφές τυμπάνου περιέλιξης</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+\[u_{lift} = \omega \times R \]<br />
+</p>
+
+<p>
+\[\omega = \frac{u_{lift}}{R} \]<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Ταχύτητα ανύψωσης [u]</td>
+<td class="org-right">12</td>
+<td class="org-left">\(\frac{m}{min}\)</td>
+</tr>
+
+<tr>
+<td class="org-left">Διάμετρος τυμπάνου [D]</td>
+<td class="org-right">350</td>
+<td class="org-left">\(mm\)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">\(\omega\)</td>
+<td class="org-right">69</td>
+<td class="org-left">rpm</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgfd7130e" class="outline-3">
+<h3 id="orgfd7130e"><span class="section-number-3">4.4.</span> Επιλογή ανεμιστήρα</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+Επιλέγεται ηλεκτροκινητήρας:<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Ισχύς</td>
+<td class="org-right">4</td>
+<td class="org-left">kW</td>
+</tr>
+
+<tr>
+<td class="org-left">Στροφές λειτουργίας</td>
+<td class="org-right">750</td>
+<td class="org-left">rpm</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org256455a" class="outline-3">
+<h3 id="org256455a"><span class="section-number-3">4.5.</span> Επιλογή συρματόσχοινο</h3>
+<div class="outline-text-3" id="text-4-5">
+<p>
+Επιλέγεται συματόσχοινο με διάμετρο 6.4mm σύμφωνα με τον παρακάτω πίνακα:<br />
+</p>
+
+
+<div id="org7c314ba" class="figure">
+<p><img src="./images/wire_rope.jpg" alt="wire_rope.jpg" /><br />
+</p>
+</div>
+
+<p>
+Για μήκος περίπου 3m είναι:<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Διάμετρος συρματόσχοινο</td>
+<td class="org-right">6,4</td>
+<td class="org-left">mm</td>
+</tr>
+
+<tr>
+<td class="org-left">Επιφάνεια</td>
+<td class="org-right">32,1536</td>
+<td class="org-left">\(mm^2\)</td>
+</tr>
+
+<tr>
+<td class="org-left">Μήκος</td>
+<td class="org-right">3000</td>
+<td class="org-left">mm</td>
+</tr>
+
+<tr>
+<td class="org-left">Όγκος</td>
+<td class="org-right">96460,8</td>
+<td class="org-left">mm<sup>3</sup></td>
+</tr>
+
+<tr>
+<td class="org-left">Διάμετρος τυμπάνου</td>
+<td class="org-right">350</td>
+<td class="org-left">mm</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Η σχέση εξωτερικής διαμέτρου τυμπάνου και μήκους είναι:<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">Rin</th>
+<th scope="col" class="org-right">Rout</th>
+<th scope="col" class="org-right">L</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">175</td>
+<td class="org-right">300</td>
+<td class="org-right">517</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">175</td>
+<td class="org-right">350</td>
+<td class="org-right">330</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<div class="org-src-container">
+<pre class="src src-maxima">d<span style="color: #859900;">:</span><span style="color: #2aa198;">6</span><span style="color: #859900;">.</span>4E<span style="color: #859900;">-</span><span style="color: #2aa198;">3</span>;
+r<span style="color: #859900;">:</span><span style="color: #2aa198;">0</span><span style="color: #859900;">.</span><span style="color: #2aa198;">5</span><span style="color: #859900;">*</span>d;
+area<span style="color: #859900;">:</span>d<span style="color: #859900;">*</span>d; <span style="color: #859900;">/*</span> area of wire rope square <span style="color: #859900;">*/</span>
+l<span style="color: #859900;">:</span><span style="color: #2aa198;">24</span>;
+v1<span style="color: #859900;">:</span> area <span style="color: #859900;">*</span> l;
+
+
+V(Rin,Rout,L) <span style="color: #859900;">:=</span> <span style="color: #2aa198;">%pi</span><span style="color: #859900;">*</span>(Rout<span style="color: #859900;">^</span><span style="color: #2aa198;">2</span><span style="color: #859900;">-</span>Rin<span style="color: #859900;">^</span><span style="color: #2aa198;">2</span>)<span style="color: #859900;">*</span>L;
+
+
+
+</pre>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org114324f" class="outline-3">
+<h3 id="org114324f"><span class="section-number-3">4.6.</span> Διαστάσεις σωλήνα συρματοσχοινου</h3>
+<div class="outline-text-3" id="text-4-6">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">DN</th>
+<th scope="col" class="org-left">NB(inch)</th>
+<th scope="col" class="org-right">ASME</th>
+<th scope="col" class="org-right">SCH10</th>
+<th scope="col" class="org-right">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">350</td>
+<td class="org-left">14"</td>
+<td class="org-right">355,6</td>
+<td class="org-right">6,35</td>
+<td class="org-right">7,92</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org2392c3b" class="outline-3">
+<h3 id="org2392c3b"><span class="section-number-3">4.7.</span> Αξονας στρέψης συρματόσχοινου</h3>
+<div class="outline-text-3" id="text-4-7">
+<p>
+Η ροπή στρέψης είναι: \(Τ:3675Nm\)<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">T</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">3675</td>
+<td class="org-right">3675</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Nm</td>
+</tr>
+
+<tr>
+<td class="org-left">t</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">2,3</td>
+<td class="org-right">0,6</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">mm</td>
+</tr>
+
+<tr>
+<td class="org-left">D</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">21,7</td>
+<td class="org-right">20</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">mm</td>
+</tr>
+
+<tr>
+<td class="org-left">A</td>
+<td class="org-left">t*D*π</td>
+<td class="org-right">156,7174</td>
+<td class="org-right">37,68</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">mm<sup>2</sup></td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">τ</td>
+<td class="org-left">\(\frac{T}{2tA}\)</td>
+<td class="org-right">5,1</td>
+<td class="org-right">81,3</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">MPa</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<div id="orgca4d65d" class="figure">
+<p><img src="file:///home/me/crane/images/skf-20-6404.jpg" alt="skf-20-6404.jpg" /><br />
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org9194302" class="outline-3">
+<h3 id="org9194302"><span class="section-number-3">4.8.</span> Ρουλεμαν</h3>
+<div class="outline-text-3" id="text-4-8">
+<p>
+<a href="https://www.skf.com/in/products/rolling-bearings/ball-bearings/deep-groove-ball-bearings/productid-6404">https://www.skf.com/in/products/rolling-bearings/ball-bearings/deep-groove-ball-bearings/productid-6404</a><br />
+</p>
+
+<p>
+SKF-6404<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Basic dynamic load rating</th>
+<th scope="col" class="org-left">30,7 kN</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">Basic static load rating</th>
+<th scope="col" class="org-left">15 kN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Bore diameter</td>
+<td class="org-left">20 mm</td>
+</tr>
+
+<tr>
+<td class="org-left">Outside diameter</td>
+<td class="org-left">72 mm</td>
+</tr>
+
+<tr>
+<td class="org-left">Width</td>
+<td class="org-left">19 mm</td>
+</tr>
+</tbody>
+</table>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Basic dynamic load rating</td>
+<td class="org-left">C</td>
+<td class="org-left">30,7 kN</td>
+</tr>
+
+<tr>
+<td class="org-left">Basic static load rating</td>
+<td class="org-left">C0</td>
+<td class="org-left">15 kN</td>
+</tr>
+
+<tr>
+<td class="org-left">Fatigue load limit</td>
+<td class="org-left">Pu</td>
+<td class="org-left">0,64 kN</td>
+</tr>
+
+<tr>
+<td class="org-left">Reference speed</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">24 000 r/min</td>
+</tr>
+
+<tr>
+<td class="org-left">Limiting speed</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">15 000 r/min</td>
+</tr>
+
+<tr>
+<td class="org-left">Minimum load factor</td>
+<td class="org-left">kr</td>
+<td class="org-left">0,035</td>
+</tr>
+
+<tr>
+<td class="org-left">Calculation factor</td>
+<td class="org-left">f0</td>
+<td class="org-left">11</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org21a2eb8" class="outline-3">
+<h3 id="org21a2eb8"><span class="section-number-3">4.9.</span> Εσωτερική σωλήνα συρματοσχοινου</h3>
+<div class="outline-text-3" id="text-4-9">
+<p>
+Πατάει στην εξωτερική του ρουλεμαν<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Diameter</td>
+<td class="org-right">76,3</td>
+</tr>
+
+<tr>
+<td class="org-left">Wall thickness</td>
+<td class="org-right">2,8</td>
+</tr>
+
+<tr>
+<td class="org-left">Inside diameter</td>
+<td class="org-right">70,7</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org7cbbc90" class="outline-3">
+<h3 id="org7cbbc90"><span class="section-number-3">4.10.</span> Επιλογή μειωτήρα</h3>
+<div class="outline-text-3" id="text-4-10">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Είδος</th>
+<th scope="col" class="org-right">Τιμή</th>
+<th scope="col" class="org-left">Μονάδες</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Στροφές ΗΚ [\(i_1\)]</td>
+<td class="org-right">750</td>
+<td class="org-left">rpm</td>
+</tr>
+
+<tr>
+<td class="org-left">Στροφές τύμπάνου περιέλιξης [\(i_2\)]</td>
+<td class="org-right">69</td>
+<td class="org-left">rpm</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Σχέση μετάδοσης [$i]</td>
+<td class="org-right">10,870</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Επιλογή μειωτήρα με σχέση μετάδοσης</td>
+<td class="org-right">12</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">module</th>
+<th scope="col" class="org-right">2,5</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">αρ.δοντιών</th>
+<th scope="col" class="org-right">160</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">εξωτερική διάμετρος</td>
+<td class="org-right">400.</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">175</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">87,5</td>
+<td class="org-right">87,5</td>
+<td class="org-right">1.</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">58,333333</td>
+<td class="org-right">116,66667</td>
+<td class="org-right">2,0000001</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">43,75</td>
+<td class="org-right">131,25</td>
+<td class="org-right">3.</td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">175</td>
+<td class="org-right">175/0</td>
+</tr>
+</tbody>
+</table>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">87,5</td>
+<td class="org-right">0.</td>
+<td class="org-right">0.</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">43,75</td>
+<td class="org-right">43,75</td>
+<td class="org-right">1.</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">29,166667</td>
+<td class="org-right">58,333333</td>
+<td class="org-right">2,0000000</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">21,875</td>
+<td class="org-right">65,625</td>
+<td class="org-right">3.</td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">87,5</td>
+<td class="org-right">87,5 / 0</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="outline-container-org77c0313" class="outline-4">
+<h4 id="org77c0313"><span class="section-number-4">4.10.1.</span> Σχεσεις μετάδοσης</h4>
+<div class="outline-text-4" id="text-4-10-1">
+<p>
+H νεά σχέση μετάδοσης στο πολυβάθμιο μειωτήρα είναι:<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Α</th>
+<th scope="col" class="org-right">1</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">Β</th>
+<th scope="col" class="org-right">3</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">C</th>
+<th scope="col" class="org-right">2</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">D</th>
+<th scope="col" class="org-right">2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">12</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Στροφές ΗΚ</th>
+<th scope="col" class="org-left">\(n_{motor}\)</th>
+<th scope="col" class="org-right">1400</th>
+<th scope="col" class="org-left">rpm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Μέση ταχύτητα ανύψωσης</td>
+<td class="org-left">\(u_m\)</td>
+<td class="org-right">12</td>
+<td class="org-left">m/min</td>
+</tr>
+
+<tr>
+<td class="org-left">Εσωτερική διάμετρος τυμπάνου</td>
+<td class="org-left">\(d_w = 2 \times r_w\)</td>
+<td class="org-right">400</td>
+<td class="org-left">mm</td>
+</tr>
+
+<tr>
+<td class="org-left">Αριθμος συρματοσχοίνων</td>
+<td class="org-left">\(k\)</td>
+<td class="org-right">2</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Περιστροφική ταχύτητα τυμπάνου</td>
+<td class="org-left">\(n_{winch} = k \ times \frac{u_m}{r_w}\)</td>
+<td class="org-right">120</td>
+<td class="org-left">rpm</td>
+</tr>
+
+<tr>
+<td class="org-left">Σχέση μετάδοσης τυμπάνου</td>
+<td class="org-left">\(i_1 = \frac{1}{k} \times \frac{n_motor}{n_winch}\)</td>
+<td class="org-right">11,666667</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Από πίνακα σχέσης μετάδοσης επιλέγεται</td>
+<td class="org-left">\(i_{total}\)</td>
+<td class="org-right">12</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Εσωτερική διάμετρος τυμπάνου</td>
+<td class="org-left">\(d_{in}\)</td>
+<td class="org-right">350</td>
+<td class="org-left">mm</td>
+</tr>
+
+<tr>
+<td class="org-left">Εξωτερική διάμετρος τυμπάνου</td>
+<td class="org-left">\(d_{out}\)</td>
+<td class="org-right">400</td>
+<td class="org-left">rpm</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Ταχύτητα max</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">8,7500003</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Η διάμετρος του τυμπάνου επηρρεάζει την ταχύτητα ανύψωσης, για σταθερές στροφές τυμπάνου.<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org9bfa526" class="outline-2">
+<h2 id="org9bfa526"><span class="section-number-2">5.</span> Πλανητικός μειωτήρας</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+<a href="https://en.wikipedia.org/wiki/Epicyclic_gearing">https://en.wikipedia.org/wiki/Epicyclic_gearing</a><br />
+</p>
+
+
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Α</th>
+<th scope="col" class="org-right">4</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">Β</th>
+<th scope="col" class="org-right">3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">12</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Διάμετρος δακτυλιου</td>
+<td class="org-left">\(D_r\)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">300</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Σχέση μετάδοσης</td>
+<td class="org-left">\(i\)</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">3</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Διάμετρος κεντρικού</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">100</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</body>
+</html>

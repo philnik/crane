@@ -1,0 +1,16 @@
+
+
+
+
+#+TITLE:     winch
+#+SETUPFILE: ./setup/setup_theme.org
+
+
+* Σχέδια
+
+[[./images/draw1.png]]
+[[./images/draw2.png]]
+[[./images/draw3.png]]
+[[./images/draw4.png]]
+[[./images/draw5.png]]
+[[./images/draw6.png]]

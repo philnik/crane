@@ -1,0 +1,1115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-04-21 Παρ 22:26 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="author" content="Nikolakopoulos Filippos" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orge91fa05">1. Χωροδικτύωμα</a></li>
+<li><a href="#org64f0027">2. Σταθερότητα χωροδικτυώματος</a>
+<ul>
+<li><a href="#org924381c">2.1. Χωρίς το μέλος (ΑΒ)</a></li>
+</ul>
+</li>
+<li><a href="#orgffdd76d">3. 1η προσεγγιση ως προς τις δυνάμεις ως χωροδικτύωμα</a></li>
+<li><a href="#orge0eb643">4. Υπολογισμός δυνάμεων στο χωροδικτύωμα</a></li>
+<li><a href="#org424eee2">5. Υλικό κατασκευή</a></li>
+<li><a href="#orgb811d9e">6. Υπολογισμός ραβδου (BC)</a>
+<ul>
+<li><a href="#orge591034">6.1. maxima</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge91fa05" class="outline-2">
+<h2 id="orge91fa05"><span class="section-number-2">1.</span> Χωροδικτύωμα</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Αρχικά θεωρείται πως οι προβολοι το γερανου είναι ραβδοι και δέχονται δυνάμεις μόνο σε εφελκυσμό και θλίψη.
+</p>
+
+
+<div id="org2027add" class="figure">
+<p><img src="file:///home/me/crane/diagram1.jpg" alt="diagram1.jpg" />
+</p>
+</div>
+
+
+<p>
+Οι θέσεις των κόμβων σε αυτή τη φάση είναι προσεγγιστικές για την αρχική σχεδίαση.
+</p>
+
+
+<p>
+Οι δυνάμεις σε κάθε κόμβο (Α), (Β), (C) προέρχονται από εφελκυσμό και θλίψη στην αντίστοιχη διευθυνση της κάθε ράβδου.
+</p>
+
+<p>
+Το άθροισμα των δυνάμεων σε κάθε κόμβο είναι μηδέν, δηλαδή,
+</p>
+
+<p>
+ΣΑ=0
+</p>
+
+<p>
+ΣΒ=0
+</p>
+
+<p>
+ΣC=0
+</p>
+
+
+
+
+<p>
+Οι δυνάμεις σε κάθε ράβδο μπορεί να είναι εφελκυστικές ή θλιπτικές.
+</p>
+
+
+
+<div id="orgb90608f" class="figure">
+<p><img src="file:///home/me/crane/diagram3.jpg" alt="diagram3.jpg" />
+</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org64f0027" class="outline-2">
+<h2 id="org64f0027"><span class="section-number-2">2.</span> Σταθερότητα χωροδικτυώματος</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Τα προβλήματα με χωροδικτύωματα μπορεί να μην είναι πάντοτε στατικά ορισμένα, ή σταθερά.
+</p>
+
+
+<p>
+<a href="https://www.sjsu.edu/people/steven.vukazich/docs/160.4.3%20Truss%20Stability.pdf">https://www.sjsu.edu/people/steven.vukazich/docs/160.4.3%20Truss%20Stability.pdf</a>
+</p>
+
+
+<p>
+<a href="https://en.wikipedia.org/wiki/Truss">https://en.wikipedia.org/wiki/Truss</a>
+</p>
+
+<p>
+Ο υπολογισμός γίνεται με βάση την τιμή:
+\[m-2\times\j-r\]
+</p>
+
+<p>
+,όπου m o αριθμός των μελών
+j o αριθμός των κόμβων
+r ο αριθμός των στηρίξεων.
+</p>
+
+<p>
+Στο γερανό έχουμε:
+</p>
+<table id="orge0266f4" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">ραβδοι (m)</th>
+<th scope="col" class="org-right">κόμβοι(j)</th>
+<th scope="col" class="org-right">r(αντιδράσεις)</th>
+<th scope="col" class="org-left">m-2j+r</th>
+<th scope="col" class="org-left">m-2j+3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">3</td>
+<td class="org-right">2</td>
+<td class="org-left">-1</td>
+<td class="org-left">0</td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&gt;0 σταθερό</td>
+<td class="org-left">στατικά ορισμενο</td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+<p>
+Πρέπει να υπολογίστούν:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Είδος που υπολογίζεται</th>
+<th scope="col" class="org-right">αγνωστοι</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Δυνάμεις (εφελκυσμό-θλίψη) σε 3 ράβδους</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">Δυνάμεις στήριξης( αντιδράσεις στα (Α),(Β)</td>
+<td class="org-right">2</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Αθροισμα αγνωστες τιμές :</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Ο κάθε κόμβος δίνει 2 εξισώσεις 1 κατά διευθυνση Χ και 1 κατά Υ.
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Εξισώσεις</th>
+<th scope="col" class="org-right">κομβοι</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Εξισώσεις Κατά Χ</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">Εξισώσεις Κατά Υ</td>
+<td class="org-right">3</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Δεδομένες εξισώσεις</td>
+<td class="org-right">6</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Το πρόβλημα είναι γραμμικό.
+</p>
+
+<p>
+Έχουμε 1 παραπάνω εξίσωση από άγνωστο.
+</p>
+
+<p>
+Το σύστημα είναι σταθερό αλλά αόριστο.
+</p>
+
+<p>
+Για να υπολογιστεί χρειάζεται ο υπολογισμός και των παραμορφώσεων.
+</p>
+
+<p>
+Πρακτικά θεωρούμε πως το (Β) είναι κύλιση και το κάθετο βάρος του γερανού, λαμβάνεται εξ'όλοκλήρου στο (Α). Το οποιό είναι υπερδιαστασιολόγηση για τη στήριξη (Α).
+</p>
+</div>
+
+<div id="outline-container-org924381c" class="outline-3">
+<h3 id="org924381c"><span class="section-number-3">2.1.</span> Χωρίς το μέλος (ΑΒ)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Αγνοουμε για λίγο το μέλος (ΑΒ). και θεωρούμε 2 μέλη AC, BC.
+</p>
+<table id="org4e2c949" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">ραβδοι (m)</th>
+<th scope="col" class="org-right">κόμβοι(j)</th>
+<th scope="col" class="org-right">r(αντιδράσεις)</th>
+<th scope="col" class="org-left">m-2j+r</th>
+<th scope="col" class="org-left">m-2j+3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">2</td>
+<td class="org-left">-2</td>
+<td class="org-left">-1</td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&gt;0 σταθερό</td>
+<td class="org-left">αοριστο</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+Στο γερανό έχουμε:
+</p>
+<table id="org928f3f9" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">ραβδοι (m)</th>
+<th scope="col" class="org-right">κόμβοι(j)</th>
+<th scope="col" class="org-right">r(αντιδράσεις)</th>
+<th scope="col" class="org-left">m-2j+r</th>
+<th scope="col" class="org-left">m-2j+3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">2</td>
+<td class="org-left">-2</td>
+<td class="org-left">-1</td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&gt;0 σταθερό</td>
+<td class="org-left">αοριστο</td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+<p>
+Πρέπει να υπολογίστούν:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Δυνάμεις (εφελκυσμό-θλίψη) σε 3 ράβδους</th>
+<th scope="col" class="org-left">2 άγνωστοι</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">Δυνάμεις στήριξης( αντιδράσεις στα (Α),(Β)</th>
+<th scope="col" class="org-left">2 άγνώστοι</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">4 άγνωστες τιμές</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Ο κάθε κόμβος δίνει 2 εξισώσεις 1 κατά διευθυνση Χ και 1 κατά Υ.
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">κομβοι</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">Εξισώσεις Κατά Χ</th>
+<th scope="col" class="org-right">3</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">Εξισώσεις Κατά Υ</th>
+<th scope="col" class="org-right">3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Δεδομένες εξισώσεις</td>
+<td class="org-right">6</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+
+
+
+<div id="outline-container-orgffdd76d" class="outline-2">
+<h2 id="orgffdd76d"><span class="section-number-2">3.</span> 1η προσεγγιση ως προς τις δυνάμεις ως χωροδικτύωμα</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Μια πρώτη προσέγγιση για των υπολογισμό των δυνάμεων είναι:
+</p>
+
+<p>
+Απο τις δυνάμεις η γνωστή είναι η δύναμη του φορτίου στο ακρο C.
+</p>
+
+<p>
+Από τα τριγωνο των δυνάμεων χρησιμοποιυμε τη γεωμετρική λύση.
+</p>
+
+<p>
+Επειδη η γωνία είναι \(~30^ο\) σχηματιζεται ισόπλευρο τρίγωνο 
+</p>
+
+
+<div id="orgad0c74c" class="figure">
+<p><img src="file:///home/me/crane/diagram2.jpg" alt="diagram2.jpg" />
+</p>
+</div>
+
+
+
+
+<div id="org6f21b13" class="figure">
+<p><img src="file:///home/me/crane/diagram4.jpg" alt="diagram4.jpg" />
+</p>
+</div>
+
+
+
+<p>
+Οι δυνάμεις κοπής υπολογίζονται σε κάθε σημείο:
+</p>
+
+<p>
+\[C_2C_3=2\times C_1C_2\]
+\[C_1C_3=1.7\times C_1C_2\]
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-orge0eb643" class="outline-2">
+<h2 id="orge0eb643"><span class="section-number-2">4.</span> Υπολογισμός δυνάμεων στο χωροδικτύωμα</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+H δυναμη \(C_y\) είναι η μέγιστη δύναμη που ασκείται στο \(C\), η το πιο απομακρυσμένο σημέιο από τη στήριξη.
+</p>
+
+<p>
+Θεωρείται για τους υπολογισμούς του σχεδιασμου πως αυτή είναι η δυσμενέστερη θέση απο άποψη αντοχής.
+</p>
+
+<p>
+Οι δυναμεις σε αυτό το σημείο είναι από τα δεδομένα του προβλήματος:
+</p>
+
+<table id="org6a16c13" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Είδος δύναμης</th>
+<th scope="col" class="org-right">Τιμή(Ν)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Μέγιστη δυνατότητα ανύψωσης:</td>
+<td class="org-right">20000</td>
+</tr>
+
+<tr>
+<td class="org-left">Συρματόσχοινο:</td>
+<td class="org-right">860</td>
+</tr>
+
+<tr>
+<td class="org-left">Γαντζος</td>
+<td class="org-right">70</td>
+</tr>
+
+<tr>
+<td class="org-left">Βαρος γερανού:</td>
+<td class="org-right">6210</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Αθροισμα:</td>
+<td class="org-right">27140</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">27.140kN</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<p>
+Από τα διαγράμματα και τη γεωμετρια του τριγώνου υπολογίζονται οι δυνάμεις στους υπόλοιπους κόμβους:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Δυναμή</th>
+<th scope="col" class="org-left">Τυπος υπολογισμού</th>
+<th scope="col" class="org-right">Τιμή</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">\(C_y\)</td>
+<td class="org-left">δεδομένο</td>
+<td class="org-right">27.140</td>
+<td class="org-left">Βάρος φορτίου</td>
+</tr>
+
+<tr>
+<td class="org-left">\(C\)</td>
+<td class="org-left">\(2\times C_y\)</td>
+<td class="org-right">54.28</td>
+<td class="org-left">εφελκυσμός στη ραβδο (ΒC)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(C_x\)</td>
+<td class="org-left">\(1.7\times C_y\)</td>
+<td class="org-right">92.276</td>
+<td class="org-left">θλίψη στη ραβδο (AC)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">\(B\)</td>
+<td class="org-left">\(=C\)</td>
+<td class="org-right">54.28</td>
+<td class="org-left">εφελκυσμός στη ραβδο (ΒC)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(B_x\)</td>
+<td class="org-left">\(=0.6\times C\)</td>
+<td class="org-right">32.568</td>
+<td class="org-left">*στηριξη στον τοιχο</td>
+</tr>
+
+<tr>
+<td class="org-left">\(B_y\)</td>
+<td class="org-left">\(=0.5*B_x\)</td>
+<td class="org-right">0</td>
+<td class="org-left">**θεωρουμε κύλιση στο (Β)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">\(A_x\)</td>
+<td class="org-left">\(=C_x\)</td>
+<td class="org-right">46.138</td>
+<td class="org-left">θλίψη στη ραβδο (AC)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(A_y\)</td>
+<td class="org-left">\(=C_y\)</td>
+<td class="org-right">27.14</td>
+<td class="org-left">**το βαρος του γερανού</td>
+</tr>
+
+<tr>
+<td class="org-left">\(Α\)</td>
+<td class="org-left">\(=2\times A_y\)</td>
+<td class="org-right">54.28</td>
+<td class="org-left">*στηριξη στον τοιχο</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+*Οι δυνάμεις στήριξης στον τοίχο χρειάζονται για τον υπολογισμό των κοχλιών βάσεις (post) του γερανού.
+</p>
+
+<p>
+**Το βάρος του γερανού προστίθεται ολόκληρο στη θέση (C), για λόγους υπολογισμού αντοχής. Ενα τμήμα του κάθετου φορτίου θα μπορούσε να λαμβάνεται από το (Β).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org424eee2" class="outline-2">
+<h2 id="org424eee2"><span class="section-number-2">5.</span> Υλικό κατασκευή</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Τα δομικά στοιχεία τοου γερανού κατασκευάζονται από χάλύβα St37.
+</p>
+
+<p>
+Τα τεχνικά χαρκατηριστικά του χάλυβα είναι:
+</p>
+<table id="org8a93361" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Είδος:</th>
+<th scope="col" class="org-right">Τιμή</th>
+<th scope="col" class="org-left">Μονάδες</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">Χάλυβας: St37 / AISI1006</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Παραμόρφωση:</td>
+<td class="org-right">22</td>
+<td class="org-left">%</td>
+</tr>
+
+<tr>
+<td class="org-left">Τάση διαρροής (0.2%) :</td>
+<td class="org-right">370</td>
+<td class="org-left">MPa</td>
+</tr>
+
+<tr>
+<td class="org-left">Μέγιστες διατμητικές τάσεις:</td>
+<td class="org-right">230</td>
+<td class="org-left">MPa</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Πυκνότητα:</td>
+<td class="org-right">7800</td>
+<td class="org-left">\(Kg/m^3\)</td>
+</tr>
+
+<tr>
+<td class="org-left">Elastic modulus</td>
+<td class="org-right">200</td>
+<td class="org-left">\(GPa\)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-orgb811d9e" class="outline-2">
+<h2 id="orgb811d9e"><span class="section-number-2">6.</span> Υπολογισμός ραβδου (BC)</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Η δοκός καταπονείται (BC) σε εφελκυσμό.
+</p>
+
+<p>
+Οι εξισώσεις του εφελκυσμού είναι:
+</p>
+
+<p>
+\[\sigma = \frac{P}{A}\]
+</p>
+
+<p>
+\[\epsilon = \frac{\sigma}{E}\]
+</p>
+
+<p>
+\[\delta = \frac{P \times l}{A \times E}\]
+</p>
+
+
+<table id="org9181759" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Μήκος ράβδου</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">3150</td>
+<td class="org-left">mm</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">P</td>
+<td class="org-left">\(C = 2 \times W\)</td>
+<td class="org-right">54.28</td>
+<td class="org-left">kΝ</td>
+<td class="org-left">εφελκυσμός στη ραβδο (ΒC)</td>
+</tr>
+
+<tr>
+<td class="org-left">Τάση διαρροής (0.2%) :</td>
+<td class="org-left">σ</td>
+<td class="org-right">370</td>
+<td class="org-left">MPa</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Επιφάνεια δοκού</td>
+<td class="org-left">\(Α=P/c\)</td>
+<td class="org-right">1.4670270e-4</td>
+<td class="org-left">m<sup>2</sup></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">ενταση:</td>
+<td class="org-left">\(ε=σ/Ε\)</td>
+<td class="org-right">0.00185</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">παραμόρφωση:</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">5.82</td>
+<td class="org-left">mm</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Επομένως στο όριο της δύναμης και τάση διαρροής, η διάμετρος πρέπει να έχει επιφάνεια: \(Α:1.46\times10^{(-4)}m^2\)
+</p>
+</div>
+
+<div id="outline-container-orge591034" class="outline-3">
+<h3 id="orge591034"><span class="section-number-3">6.1.</span> maxima</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+programmode:false;
+</p>
+
+<div class="org-src-container">
+<pre class="src src-maxima" id="org424b634">fpprintprec:3$
+
+eq1: sigma = P/A$
+print(tex(eq1));
+
+eq2: e = sigma / E$
+print(tex(eq2));
+
+eq3: delta = (P*l) / (A*E)$
+print(tex(eq3))$
+
+eq10a:solve(eq1,A)$
+print(tex(eq10a));
+
+P:54.28$
+print("$$P:",P,"kN$$");
+
+sigma:370$
+print("$$σ:",370,"MPa$$");
+
+A:(P*10^3) / (sigma*10^6) $
+print("$$A:",A,"m^2$$");
+
+E:200*10^9$
+epsilon:sigma/E$
+epsilon:(sigma*10^6) / E,numer$
+print("$$ε:",epsilon,"$$");
+
+l:3150$
+delta: P*l / (A*E);
+print("$$delta:",delta,"m$$");
+</pre>
+</div>
+
+
+<p>
+\[\sigma={{P}\over{A}}\]
+false 
+\[e={{\sigma}\over{E}}\]
+false 
+\[\delta={{P\,l}\over{A\,E}}\]
+false 
+\[\left[ A={{P}\over{\sigma}} \right] \]
+false 
+\[P: 54.2 kN\] 
+\[σ: 370 MPa\] 
+\[A: 1.46E-4 m^2\] 
+\[ε: 0.00185 \] 
+\[delta: 0.00582 m\] 
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Nikolakopoulos Filippos</p>
+<p class="date">Created: 2023-04-21 Παρ 22:26</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

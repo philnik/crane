@@ -1,0 +1,46 @@
+#+AUTHOR:    crane
+#+EMAIL:     crame@crane.com
+#+DATE:      
+#+KEYWORDS:o
+#+DESCRIPTION:
+#+LANGUAGE:  el
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export11
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+OPTIONS: html-postamble:nil
+#+LINK_UP:   
+#+LINK_HOME: 1
+#+XSLT:2
+#+LATEX_CMD: latex
+#+LaTeX_CLASS: plain1
+# #+LaTeX_CLASS_OPTIONS: article
+# #+LATEX_HEADER:\usepackage{xunicode}
+# #+LATEX_HEADER:\usepackage{xgreek}
+# #+LATEX_HEADER:\usepackage{xltxtra}
+# #+LATEX_HEADER:\setmainfont[Mapping=tex-text]{Liberation Serif}
+# #+LATEX_HEADER:\usepackage{graphicx}
+# #+LATEX_HEADER:\input{/home/pro/latex/latex-header.tex}
+# #+LATEX_HEADER: \renewcommand\tableofcontents{}
+# #+LATEX_HEADER: \renewcommand\maketitle{}
+# #+LATEX_COMPILER: xelatex
+#+OPTIONS: toc:t
+#+STARTUP: indent
+#+OPTIONS: H:12 num:t
+#+OPTIONS: author:nil date:nil
+#+ODT_STYLES_FILE: "/home/pro/org/odt/my-style.ott"
+#+startup: latexnopreview
+#+EXCLUDE_TAGS: noexport
+#+startup: latexnopreview
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-bigblow.setup
+#+HTML_HEAD: <style> #content{max-width:1800px;}</style>
+#+HTML_HEAD: <style> p{max-width:800px;}</style>
+#+HTML_HEAD: <style> li{max-width:800px;}</style
+#+PROPERTY: header-args :eval no-export
+#+OPTIONS: \n:t
+#+OPTIONS: broken-links:mark
+#+OPTIONS: broken-links:mark
+#+EXCLUDE_TAGS: noexport
+#+STARTUP: shrink
+

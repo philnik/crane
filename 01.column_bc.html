@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="el" xml:lang="el">
+<head>
+<!-- 2023-05-03 Τετ 20:50 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>column-bc</title>
+<meta name="keywords" content="o" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/bigblow_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/bigblow_theme/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/bigblow_theme/css/hideshow.css"/>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/bigblow.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/hideshow.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<style> #content{max-width:1800px;}</style>
+<style> p{max-width:800px;}</style>
+<style> li{max-width:800px;}</style
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">column-bc</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org19df9be">1. Υπολογισμός ραβδου (BC)</a>
+<ul>
+<li><a href="#org6e4a146">1.1. Επιλογή ράβδου</a></li>
+</ul>
+</li>
+<li><a href="#org549cff1">2. Υπολογισμός κοχλία προέντασης</a></li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-org19df9be" class="outline-2">
+<h2 id="org19df9be"><span class="section-number-2">1.</span> Υπολογισμός ραβδου (BC)</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Η δοκός καταπονείται (BC) σε εφελκυσμό.<br />
+</p>
+
+<p>
+Οι εξισώσεις του εφελκυσμού είναι:<br />
+</p>
+
+<p>
+\[\sigma = \frac{P}{A}\]<br />
+</p>
+
+<p>
+\[\epsilon = \frac{\sigma}{E}\]<br />
+</p>
+
+<p>
+\[\delta = \frac{P \times l}{A \times E}\]<br />
+</p>
+
+
+<table id="orgd9f88b0" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Μήκος ράβδου</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">3150</td>
+<td class="org-left">mm</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">P</td>
+<td class="org-left">\(C = 2 \times W\)</td>
+<td class="org-right">54.28</td>
+<td class="org-left">kΝ</td>
+<td class="org-left">εφελκυσμός στη ραβδο (ΒC)</td>
+</tr>
+
+<tr>
+<td class="org-left">Τάση διαρροής (0.2%) :</td>
+<td class="org-left">\(\sigma\)</td>
+<td class="org-right">370</td>
+<td class="org-left">MPa</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Επιφάνεια δοκού</td>
+<td class="org-left">\(Α=\dfrac{P}{c}\)</td>
+<td class="org-right">1.46e-4</td>
+<td class="org-left">m<sup>2</sup></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">1.46</td>
+<td class="org-left">cm<sup>2</sup></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">ενταση:</td>
+<td class="org-left">\(\epsilon=\dfrac{\sigma}{Ε}\)</td>
+<td class="org-right">0.00185</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Μετατόπιση:</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">5.82</td>
+<td class="org-left">mm</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Επομένως στο όριο της δύναμης και τάση διαρροής, η διάμετρος πρέπει να έχει επιφάνεια: \(Α:1.46\times10^{(-4)}m^2\)<br />
+</p>
+</div>
+
+
+<div id="outline-container-org6e4a146" class="outline-3">
+<h3 id="org6e4a146"><span class="section-number-3">1.1.</span> Επιλογή ράβδου</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Η ράβδος (ΒC) επιλέγεται από τον πίνακα<br />
+<a href="https://www.nspc.nipponsteel.com/en/products/building_kenchiku.html">https://www.nspc.nipponsteel.com/en/products/building_kenchiku.html</a><br />
+</p>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Εξωτερική διάμετρος</th>
+<th scope="col" class="org-left">Παχος [t]</th>
+<th scope="col" class="org-right">μαζα [m]</th>
+<th scope="col" class="org-right">Επιφάνεια [Α]</th>
+<th scope="col" class="org-right">Ροπή αδράνειας [I]</th>
+<th scope="col" class="org-right">Section modulus</th>
+<th scope="col" class="org-right">Radius of gyration</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">mm</th>
+<th scope="col" class="org-left">mm</th>
+<th scope="col" class="org-right">Kg/m</th>
+<th scope="col" class="org-right">cm<sup>2</sup></th>
+<th scope="col" class="org-right">cm<sup>4</sup></th>
+<th scope="col" class="org-right">cm<sup>3</sup></th>
+<th scope="col" class="org-right">cm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">21.7</td>
+<td class="org-left">2.3</td>
+<td class="org-right">1.10</td>
+<td class="org-right">1.402</td>
+<td class="org-right">0.669</td>
+<td class="org-right">0.616</td>
+<td class="org-right">0.691</td>
+</tr>
+
+<tr>
+<td class="org-left">27.2</td>
+<td class="org-left">1.9</td>
+<td class="org-right">1.19</td>
+<td class="org-right">1.510</td>
+<td class="org-right">1.22</td>
+<td class="org-right">0.893</td>
+<td class="org-right">0.897</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>27.2</b></td>
+<td class="org-left"><b>2.3</b></td>
+<td class="org-right">1.41</td>
+<td class="org-right">1.799</td>
+<td class="org-right">1.41</td>
+<td class="org-right">1.03</td>
+<td class="org-right">0.884</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+H μικρότερη ράβδος που καλύπτει την αντοχή επιφάνειας με \(Α>1.46cm^2\) είναι η ράβδος 27.2x1.9 με μήκος 3150mm<br />
+</p>
+
+<p>
+Επιλέγουμε την 27.2x2.3<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Ειδός</td>
+<td class="org-right">σωλήνα 27.3x2.3</td>
+</tr>
+
+<tr>
+<td class="org-left">Εξωτερική διάμετρος</td>
+<td class="org-right">27.2</td>
+</tr>
+
+<tr>
+<td class="org-left">Πάχος</td>
+<td class="org-right">2.3</td>
+</tr>
+
+<tr>
+<td class="org-left">Εσωτερική</td>
+<td class="org-right">22.6</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-org549cff1" class="outline-2">
+<h2 id="org549cff1"><span class="section-number-2">2.</span> Υπολογισμός κοχλία προέντασης</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Τοποθετείται κοχλία, ώστε η ράβδος να βρίσκεται σε προένταση.<br />
+</p>
+
+<p>
+Το φόρτιο της ράβδου BC υπολογίστηκε από το χωροδικτύωμα:<br />
+\[P=54,28κΝ\]<br />
+</p>
+
+
+<table id="orgb67985d" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">Tensile</th>
+<th scope="col" class="org-right">Shear</th>
+<th scope="col" class="org-right">Fv</th>
+<th scope="col" class="org-right">Punch</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Size</td>
+<td class="org-right">8.8</td>
+<td class="org-right">8.8</td>
+<td class="org-right">S355 / ≥5.6</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">M5</td>
+<td class="org-right">8.18</td>
+<td class="org-right">5.45</td>
+<td class="org-right">4.9</td>
+<td class="org-right">6.37</td>
+</tr>
+
+<tr>
+<td class="org-left">M6</td>
+<td class="org-right">11.6</td>
+<td class="org-right">7.72</td>
+<td class="org-right">5.88</td>
+<td class="org-right">7.96</td>
+</tr>
+
+<tr>
+<td class="org-left">M7</td>
+<td class="org-right">16.6</td>
+<td class="org-right">11.1</td>
+<td class="org-right">6.86</td>
+<td class="org-right">8.76</td>
+</tr>
+
+<tr>
+<td class="org-left">M8</td>
+<td class="org-right">21.1</td>
+<td class="org-right">14.1</td>
+<td class="org-right">7.84</td>
+<td class="org-right">10.35</td>
+</tr>
+
+<tr>
+<td class="org-left">M10</td>
+<td class="org-right">33.4</td>
+<td class="org-right">22.3</td>
+<td class="org-right">9.8</td>
+<td class="org-right">12.74</td>
+</tr>
+
+<tr>
+<td class="org-left">M12</td>
+<td class="org-right">48.6</td>
+<td class="org-right">32.4</td>
+<td class="org-right">11.76</td>
+<td class="org-right">14.33</td>
+</tr>
+
+<tr>
+<td class="org-left">M14</td>
+<td class="org-right"><b>66.2</b></td>
+<td class="org-right">44.2</td>
+<td class="org-right">13.72</td>
+<td class="org-right">16.72</td>
+</tr>
+
+<tr>
+<td class="org-left">M16</td>
+<td class="org-right">90.4</td>
+<td class="org-right"><b>60.3</b></td>
+<td class="org-right">15.68</td>
+<td class="org-right">19.11</td>
+</tr>
+
+<tr>
+<td class="org-left">M18</td>
+<td class="org-right">110.6</td>
+<td class="org-right">73.7</td>
+<td class="org-right">17.64</td>
+<td class="org-right">21.49</td>
+</tr>
+
+<tr>
+<td class="org-left">M20</td>
+<td class="org-right">141.1</td>
+<td class="org-right">94.1</td>
+<td class="org-right">19.6</td>
+<td class="org-right">23.88</td>
+</tr>
+
+<tr>
+<td class="org-left">M22</td>
+<td class="org-right">174.5</td>
+<td class="org-right">116.4</td>
+<td class="org-right">21.56</td>
+<td class="org-right">27.07</td>
+</tr>
+
+<tr>
+<td class="org-left">M24</td>
+<td class="org-right">203.3</td>
+<td class="org-right">135.6</td>
+<td class="org-right">23.52</td>
+<td class="org-right">28.66</td>
+</tr>
+
+<tr>
+<td class="org-left">M27</td>
+<td class="org-right">264.4</td>
+<td class="org-right">176.3</td>
+<td class="org-right">26.46</td>
+<td class="org-right">32.64</td>
+</tr>
+
+<tr>
+<td class="org-left">M30</td>
+<td class="org-right">323.1</td>
+<td class="org-right">215.4</td>
+<td class="org-right">29.4</td>
+<td class="org-right">36.62</td>
+</tr>
+
+<tr>
+<td class="org-left">M33</td>
+<td class="org-right">399.7</td>
+<td class="org-right">266.5</td>
+<td class="org-right">32.34</td>
+<td class="org-right">39.8</td>
+</tr>
+
+<tr>
+<td class="org-left">M36</td>
+<td class="org-right">470.6</td>
+<td class="org-right">313.7</td>
+<td class="org-right">35.28</td>
+<td class="org-right">43.78</td>
+</tr>
+
+<tr>
+<td class="org-left">M39</td>
+<td class="org-right">562.2</td>
+<td class="org-right">374.8</td>
+<td class="org-right">38.22</td>
+<td class="org-right">47.76</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<p>
+<a href="https://eurocodeapplied.com/design/en1993/bolt-design-properties">https://eurocodeapplied.com/design/en1993/bolt-design-properties</a><br />
+Από τον πίνακα της πηγής 1 είναι:<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Είδος</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Κοχλίας προέντασης</td>
+<td class="org-left">Μ14 8.8</td>
+</tr>
+
+<tr>
+<td class="org-left">Κοχλίας κάμψης</td>
+<td class="org-left">Μ16 8.8</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</body>
+</html>

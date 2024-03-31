@@ -1,0 +1,1705 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="el" xml:lang="el">
+<head>
+<!-- 2023-05-03 Τετ 23:28 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>winch</title>
+<meta name="keywords" content="o" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/bigblow_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/bigblow_theme/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/bigblow_theme/css/hideshow.css"/>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/bigblow.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/hideshow.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<style> #content{max-width:1800px;}</style>
+<style> p{max-width:800px;}</style>
+<style> li{max-width:800px;}</style
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">winch</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgbc74f6f">1. Περιστροφική κίνηση γερανού</a>
+<ul>
+<li><a href="#org3bbb00b">1.1. Μειωτήρας περιστροφικής κίνησης</a></li>
+<li><a href="#org98a65af">1.2. Υπολογισμός ροπής στρέψης</a>
+<ul>
+<li><a href="#org5982d4d">1.2.1. Υπολογισμός πλευρικής δύναμης εκκρεμούς</a></li>
+</ul>
+</li>
+<li><a href="#org3bfd4b4">1.3. Υπολογισμός ισχύς ηλεκτροκινητήρα για στρέψη:</a></li>
+<li><a href="#org25dbda7">1.4. Επιλογή τύπου ΗΚ</a>
+<ul>
+<li><a href="#org4218f33">1.4.1. Δυνατότητες επιλογής μειωτήρα</a></li>
+<li><a href="#org7447a44">1.4.2. Διαστάσεις βηματικού κινητήρα</a></li>
+</ul>
+</li>
+<li><a href="#orgfa9777f">1.5. Εφελκυστική μηχανισμού</a></li>
+<li><a href="#org05ffc29">1.6. Υπολογισμός απόστασης παλινδρόμησης</a></li>
+<li><a href="#orgf6f9a1a">1.7. Επιλογή 1</a>
+<ul>
+<li><a href="#org28fbc83">1.7.1. Μικρό γρανάζι</a></li>
+<li><a href="#org10a11c3">1.7.2. Μεγάλο γρανάζι</a></li>
+<li><a href="#orga73842e">1.7.3. Νέα σχέση μετάδοσης</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+
+
+
+<div id="outline-container-orgbc74f6f" class="outline-2">
+<h2 id="orgbc74f6f"><span class="section-number-2">1.</span> Περιστροφική κίνηση γερανού</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org3bbb00b" class="outline-3">
+<h3 id="org3bbb00b"><span class="section-number-3">1.1.</span> Μειωτήρας περιστροφικής κίνησης</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Η σχέση μετάδοσης υπολογίστηκε:<br />
+</p>
+
+<table id="org6b6c13e" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">γωνιακή ταχύτητα γερανού</td>
+<td class="org-left">\(i_2\)</td>
+<td class="org-right">0.6</td>
+<td class="org-left">rpm</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Στροφές κινητήρα</td>
+<td class="org-left">\(i_1\)</td>
+<td class="org-right">750</td>
+<td class="org-left">rpm</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Σχέση μετάδοσης κινητήρα - γερανού</td>
+<td class="org-left">\(i=\dfrac{i_1}{i_2}\)</td>
+<td class="org-right">1125.</td>
+<td class="org-left">mm/min</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+Με βάση την σχέση μετάδοσης επιλέγεται πολυβάθμιος μειωτήρας.<br />
+Οι επιλογές ανάλογα με τις βαθμίδες είναι:<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">Ολική σχέση μετάδοσης</th>
+<th scope="col" class="org-right">Βαθμίδες μειωτήρα</th>
+<th scope="col" class="org-right">Σχέση μετάδοσης κάθε σταδίου</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Σχέση μετάδοσης</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">1125</td>
+<td class="org-right">2</td>
+<td class="org-right">33.5</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">1125</td>
+<td class="org-right">3</td>
+<td class="org-right">10.4</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">1125</td>
+<td class="org-right">4</td>
+<td class="org-right">5.8</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">1125</td>
+<td class="org-right">5</td>
+<td class="org-right">4.1</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">1125</td>
+<td class="org-right">6</td>
+<td class="org-right">3.2</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">1125</td>
+<td class="org-right">7</td>
+<td class="org-right">2.7</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Η σχεση μετάδοσης είναι πολύ μεγάλη για να χρησιμοποιηθεί απλός πολυβάθμιος με μειωτήρας<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org98a65af" class="outline-3">
+<h3 id="org98a65af"><span class="section-number-3">1.2.</span> Υπολογισμός ροπής στρέψης</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Οι δυνάμη τριβής από την κάθετη δύναμή στη στήριξη είναι:<br />
+</p>
+
+<p>
+Η αρθρωση ολισθαίνει περιστροφικά πάνω στη στη στήριξη.<br />
+</p>
+
+<p>
+Η τριβή υπολογίζεται από την παρακάτω πηγή:<br />
+</p>
+
+<p>
+<a href="https://eng.libretexts.org/Bookshelves/Mechanical_Engineering/Mechanics_Map_(Moore_et_al.)/06%3A_Friction_and_Friction_Applications/6.06%3A_Disc_Friction">https://eng.libretexts.org/Bookshelves/Mechanical_Engineering/Mechanics_Map_(Moore_et_al.)/06%3A_Friction_and_Friction_Applications/6.06%3A_Disc_Friction</a><br />
+</p>
+
+<p>
+\[Μ = \dfrac{2}{3}\times μ_κ \times F_{load} \times R_0\]<br />
+</p>
+
+<p>
+, όπου \(R_0\) η εξωτερική του δίσκου επαφής.<br />
+</p>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Συντελεστής τριβή ολίσθησης χάλυβα-χάλυβα</td>
+<td class="org-left">\(μ_κ\)</td>
+<td class="org-right">0.57</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Κάθετη δύναμή στη στήριξη:</td>
+<td class="org-left">\(F_{load}\)</td>
+<td class="org-right">27.14</td>
+<td class="org-left">κΝ</td>
+</tr>
+
+<tr>
+<td class="org-left">Εξωτερική ακτίνα δίσκου επαφής</td>
+<td class="org-left">\(R_0\)</td>
+<td class="org-right">40</td>
+<td class="org-left">mm</td>
+</tr>
+
+<tr>
+<td class="org-left">Ροπή τριβής</td>
+<td class="org-left">\(Μ = \dfrac{2}{3}\times μ_κ \times F_{load} \times R_0\)</td>
+<td class="org-right">413</td>
+<td class="org-left">Nm</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Η περιστροφική κίνηση μπορεί να γίνει με απλή τριβή δύο δίσκων.<br />
+</p>
+</div>
+
+
+
+
+<div id="outline-container-org5982d4d" class="outline-4">
+<h4 id="org5982d4d"><span class="section-number-4">1.2.1.</span> Υπολογισμός πλευρικής δύναμης εκκρεμούς</h4>
+<div class="outline-text-4" id="text-1-2-1">
+
+<div id="orga373b0f" class="figure">
+<p><img src="./images/ekkremes.png" alt="ekkremes.png" /><br />
+</p>
+</div>
+
+
+
+<p>
+Η μέγιστη κινητική ενέργεια του φορτίου κατά την περιστροφή είναι:<br />
+</p>
+
+<p>
+\[Ε_{kin}  = \dfrac{1}{2} \times m \times v^2\]<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Μάζα</td>
+<td class="org-left">m</td>
+<td class="org-right">29</td>
+<td class="org-left">kN</td>
+</tr>
+
+<tr>
+<td class="org-left">Ταχύτητα</td>
+<td class="org-left">v</td>
+<td class="org-right">0.19</td>
+<td class="org-left">m/s</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Κινητική ενεργεια φορτίου:</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">5.2345e-4</td>
+<td class="org-left">W</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Η κινητική ενέργεια του εκρεμμούς μετατρέπεται σε δυναμική ενέργεια, (το φορτίο κάνει εκρεμμές και ανυψώνεται σύμφωνα με τη σχέση:)<br />
+</p>
+
+<p>
+\[E_{dyn} = m \times g \times  h \]<br />
+</p>
+
+<p>
+Επειδή:<br />
+\[E_{dyn} = Ε_{kin}\] <br />
+</p>
+
+<p>
+Το φορτίο ανυψώνεται κατά την περιστροφική κίνηση με σταθερή ταχύτητα κατά<br />
+</p>
+
+<p>
+\[h = \dfrac{u^2}{2\times g}\]<br />
+</p>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">ταχύτητα</td>
+<td class="org-left">v</td>
+<td class="org-right">0.19</td>
+<td class="org-left">m/s</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Υψος εκρεμμούς</td>
+<td class="org-left">\(h = \dfrac{u^2}{2\times g}\)</td>
+<td class="org-right">1.805e-3</td>
+<td class="org-left">m</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Για ύψος φορτίου 1 μέτρο<br />
+</p>
+
+<p>
+Η γωνία του εκρεμμούς είναι:<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Υψος εκρεμμούς</td>
+<td class="org-left">\(h = \dfrac{u^2}{2\times g}\)</td>
+<td class="org-right">1.805e-3</td>
+<td class="org-left">m</td>
+</tr>
+
+<tr>
+<td class="org-left">Υψος συρματόσχοινο</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">1</td>
+<td class="org-left">m</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Γωνία</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">3.44</td>
+<td class="org-left">degrees</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+Tο φαινόμενο είναι δυναμικό και η πραγματικήξ γωνία πιθανόν να διαφέρει<br />
+</p>
+
+<p>
+Δημιουργείται πλευρική δύναμη.<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Κάθετη δύναμη</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">F</td>
+<td class="org-right">27.14</td>
+<td class="org-left">kN</td>
+</tr>
+
+<tr>
+<td class="org-left">Γωνία εκρεμμούς</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">a</td>
+<td class="org-right">3.44</td>
+<td class="org-left">deg</td>
+</tr>
+
+<tr>
+<td class="org-left">Πλευρική δύναμή εκρεμμόυς</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">F<sub>x</sub></td>
+<td class="org-right">1.63</td>
+<td class="org-left">kN</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Η ροπή που δημιουργείται είναι:<br />
+</p>
+
+<p>
+\[M_{dyn} = F \ times R\]<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Δύναμη</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">F</td>
+<td class="org-right">1.63</td>
+<td class="org-left">kN</td>
+</tr>
+
+<tr>
+<td class="org-left">Ακτίνα</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">R</td>
+<td class="org-right">3000</td>
+<td class="org-left">mm</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">4890.</td>
+<td class="org-left">Nm</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-org3bfd4b4" class="outline-3">
+<h3 id="org3bfd4b4"><span class="section-number-3">1.3.</span> Υπολογισμός ισχύς ηλεκτροκινητήρα για στρέψη:</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Η ισχύς του ηλεκτροκινητήρα υπολογίστηκε από τη σχέση:<br />
+</p>
+
+<p>
+\[P = M \times \omega\],<br />
+</p>
+
+<p>
+, όπου Μ η ροπή στρέψης,<br />
+\(\omega\) η γωνιακή ταχύτητα<br />
+</p>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Ροπή εκρεμμούς</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">4890</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Ροπή τριβής</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">413</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Συνολική ρόπής στρέψης</td>
+<td class="org-left">Μ</td>
+<td class="org-right">5303</td>
+<td class="org-left">Nm</td>
+</tr>
+
+<tr>
+<td class="org-left">γωνιακή ταχύτητα</td>
+<td class="org-left">\(\omega\)</td>
+<td class="org-right">0.6</td>
+<td class="org-left">rpm</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Ισχύς ηλεκτροκινητήρα</td>
+<td class="org-left">\(P = M \times \omega\)</td>
+<td class="org-right">333</td>
+<td class="org-left">W</td>
+</tr>
+
+<tr>
+<td class="org-left">Απόδοση μετάδοσης κίνησης</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">0.90</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Συνολική ισχύς</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">370</td>
+<td class="org-left">W</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Ηλεκτροκινητήρας που επιλέγεται</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">370</td>
+<td class="org-left">W</td>
+</tr>
+
+<tr>
+<td class="org-left">Στροφές λειτουργίας HK</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">750</td>
+<td class="org-left">rpm</td>
+</tr>
+
+<tr>
+<td class="org-left">Σχέση μετάδοσης:</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">1215</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Μέγιστη ροπή κινητήρα @750rpm</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">4.4</td>
+<td class="org-left">Nm</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org25dbda7" class="outline-3">
+<h3 id="org25dbda7"><span class="section-number-3">1.4.</span> Επιλογή τύπου ΗΚ</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Επιλέγεται ηλεκτροκινητήρας βηματικού τύπου (stepper motor).<br />
+</p>
+
+<p>
+Πλεονεκτήματα στην εφαρμογή:<br />
+</p>
+<ul class="org-ul">
+<li>Χαμηλή ταχύτητα κίνησης<br /></li>
+<li>Η κίνηση είναι περιστροφική παλινδρομική 180ο, κατάλληλος για αλλαγή κατεύθυνσης.<br /></li>
+<li>Ακριβής έλεγχος της περιστροφής.<br /></li>
+<li><p>
+Περιλαμβάνεται ενσωματωμένο φρένο<br />
+</p>
+
+<p>
+Τα χαρακτηριστικά του κινητήρα που αναζητείται είναι:<br />
+</p></li>
+
+<li>Ικανότητα συγκράτησης ροπή (holding torque) 5303Nm σε σχέση μετάδοσης 1:1.<br /></li>
+<li>Απαιτούμενη ισχύς , μεγαλύτερη από 370W.<br /></li>
+</ul>
+
+
+<p>
+H ροπή που του βηματικού κινητήρα είναι:<br />
+</p>
+
+
+<div id="org3993215" class="figure">
+<p><img src="./images/stepper-nema-34-20nm-curve.jpg" alt="stepper-nema-34-20nm-curve.jpg" /><br />
+</p>
+</div>
+
+<p>
+O κινητήρας που επιλέγεται πρέπει να αρκετή ροπή για να περιστρέψει το γερανό, όπως υπολογίζεται μετά τον μειωτήρα.<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Ροπή στην έξοδο (φορτίου)</td>
+<td class="org-left">[Nm]</td>
+<td class="org-right">5303</td>
+</tr>
+
+<tr>
+<td class="org-left">Ισχύς φορτίου</td>
+<td class="org-left">[W]</td>
+<td class="org-right">370</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Στατική Ροπή ΗΚ</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">20</td>
+</tr>
+
+<tr>
+<td class="org-left">Ροπή στις 200rpm</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">16.6</td>
+</tr>
+
+<tr>
+<td class="org-left">Σχέση μετάδοσης για κάλυψη της ροπής στρέψης @ 200rpm</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">318</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Στροφές ΗΚ</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">200</td>
+</tr>
+
+<tr>
+<td class="org-left">Περιστροφική ταχύτητα γερανού</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">0.6</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Ζητούμενη σχέση μετάδοσης στις 200rpm</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">333</td>
+</tr>
+
+<tr>
+<td class="org-left">Ροπή στις 200rpm</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">16.5</td>
+</tr>
+
+<tr>
+<td class="org-left">Ροπή στην έξοδο:</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">5500</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+Επιλέγεται βηματικός κινητήρας 20Nm που θα λειτουργεί εως 200rpm, με σχέση μετάδοσης μεγαλύτερη από 333.<br />
+</p>
+</div>
+
+
+<div id="outline-container-org4218f33" class="outline-4">
+<h4 id="org4218f33"><span class="section-number-4">1.4.1.</span> Δυνατότητες επιλογής μειωτήρα</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">Ολική σχέση μετάδοσης</th>
+<th scope="col" class="org-right">Βαθμίδες μειωτήρα</th>
+<th scope="col" class="org-right">Σχέση μετάδοσης κάθε σταδίου</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Σχέση μετάδοσης</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">333</td>
+<td class="org-right">2</td>
+<td class="org-right">18.2</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">333</td>
+<td class="org-right">3</td>
+<td class="org-right">6.9</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">333</td>
+<td class="org-right">4</td>
+<td class="org-right">4.3</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">333</td>
+<td class="org-right">5</td>
+<td class="org-right">3.2</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">333</td>
+<td class="org-right">6</td>
+<td class="org-right">2.6</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">333</td>
+<td class="org-right">7</td>
+<td class="org-right">2.3</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+<div id="outline-container-org7447a44" class="outline-4">
+<h4 id="org7447a44"><span class="section-number-4">1.4.2.</span> Διαστάσεις βηματικού κινητήρα</h4>
+<div class="outline-text-4" id="text-1-4-2">
+
+<div id="org9c7743f" class="figure">
+<p><img src="./images/stepper-nema-34-20nm-dimensions.png" alt="stepper-nema-34-20nm-dimensions.png" /><br />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-orgfa9777f" class="outline-3">
+<h3 id="orgfa9777f"><span class="section-number-3">1.5.</span> Εφελκυστική μηχανισμού</h3>
+<div class="outline-text-3" id="text-1-5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Ροπή στην έξοδο (φορτίου)</td>
+<td class="org-left">Μ</td>
+<td class="org-right">5303</td>
+<td class="org-left">[Nm]</td>
+</tr>
+
+<tr>
+<td class="org-left">Ακτίνα περιστροφής</td>
+<td class="org-left">R</td>
+<td class="org-right">120.</td>
+<td class="org-left">mm</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Εφελκυστικη δύναμη</td>
+<td class="org-left">\(F=M/R\)</td>
+<td class="org-right">66287.5</td>
+<td class="org-left">N</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+H εφελκυστική τάση δίνεται από τη σχέση:<br />
+</p>
+
+<p>
+\[\sigma  = \dfrac{N}{A}\]<br />
+</p>
+
+<p>
+H απαιτούμενη επιφάνεια είναι:<br />
+</p>
+
+<p>
+\[Α  = \dfrac{N}{\sigma}\]<br />
+</p>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Δυναμη</td>
+<td class="org-left">N</td>
+<td class="org-right">70000</td>
+<td class="org-left">Ν</td>
+</tr>
+
+<tr>
+<td class="org-left">τάση διαρροής</td>
+<td class="org-left">σ</td>
+<td class="org-right">370</td>
+<td class="org-left">MPa</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Επιφάνεια ράβδου</td>
+<td class="org-left">Α</td>
+<td class="org-right">1.8918919e-4</td>
+<td class="org-left">m2</td>
+</tr>
+
+<tr>
+<td class="org-left">Ορθογωνική</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">13.754606</td>
+<td class="org-left">mm</td>
+</tr>
+
+<tr>
+<td class="org-left">Κυλινδρική</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">20</td>
+<td class="org-left">mm</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-org05ffc29" class="outline-3">
+<h3 id="org05ffc29"><span class="section-number-3">1.6.</span> Υπολογισμός απόστασης παλινδρόμησης</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+Η απόσταση παλινδρόμησης υπολογίστηκε γραφικά σύμφωνα με το παρακάτω σχέδιο:<br />
+</p>
+
+
+
+<div id="orgca49083" class="figure">
+<p><img src="./images/rotation.png" alt="rotation.png" /><br />
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgf6f9a1a" class="outline-3">
+<h3 id="orgf6f9a1a"><span class="section-number-3">1.7.</span> Επιλογή 1</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+Επιλέγεται κοχλίας κίνησης (lead screw):<br />
+</p>
+
+
+<p>
+H θλιπτική δύναμη σε λυγισμό είναι 70κΝ.<br />
+</p>
+
+<p>
+Από το διάγραμμα:<br />
+</p>
+
+
+<div id="org12a35f2" class="figure">
+<p><img src="./images/choose-lead-screw.jpg" alt="choose-lead-screw.jpg" /><br />
+</p>
+</div>
+
+<p>
+Τα τεχνικά χαρακτηριστικά του κοχλία είναι:<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Μήκος διαδρομής</td>
+<td class="org-left">\(L\)</td>
+<td class="org-right">320</td>
+<td class="org-left">mm</td>
+</tr>
+
+<tr>
+<td class="org-left">Διάμετρος κοχλία</td>
+<td class="org-left">\(D\)</td>
+<td class="org-right">20</td>
+<td class="org-left">mm</td>
+</tr>
+
+<tr>
+<td class="org-left">Βήμα κοχλία</td>
+<td class="org-left">\(s\)</td>
+<td class="org-right">5.0</td>
+<td class="org-left">mm</td>
+</tr>
+
+<tr>
+<td class="org-left">Στροφές βηματικού για πλήρη κίνηση</td>
+<td class="org-left">\(n=\dfrac{L}{s}\)</td>
+<td class="org-right">64.</td>
+<td class="org-left">rotations</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Υπολογίζεται ο νεός μειωτήρας:<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Ταχύτητα περιστροφής γερανού</td>
+<td class="org-left">\(n_1\)</td>
+<td class="org-right">0.6</td>
+<td class="org-left">rpm</td>
+</tr>
+
+<tr>
+<td class="org-left">Στροφές βηματικού για κίνηση εμβόλου</td>
+<td class="org-left">\(n_2\)</td>
+<td class="org-right">64</td>
+<td class="org-left">rotations</td>
+</tr>
+
+<tr>
+<td class="org-left">Περιστροφική ταχύτητα βηματικού κινητήρα</td>
+<td class="org-left">\(n=n_1 \ times n_2\)</td>
+<td class="org-right">38.4</td>
+<td class="org-left">rpm</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+Η ταχύτητα του εμβόλου - διωστήρα δεν είναι σταθερή και προτείνεται η τοποθετήση του encoder του κινητήρα στο περιστροφικό τμήμα του γερανού, ωστε να ελέγχεται απευθείας από τον controller του βηματικού κινητήρα.<br />
+</p>
+
+<p>
+Η νέα σχέση μετάδοσης είναι:<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Περιστροφική ταχύτητα βηματικού κινητήρα</th>
+<th scope="col" class="org-left">\(n=n_1 \ times n_2\)</th>
+<th scope="col" class="org-right">38.4</th>
+<th scope="col" class="org-left">rpm</th>
+</tr>
+
+<tr>
+<th scope="col" class="org-left">Περιστροφική ταχύτητα γερανού</th>
+<th scope="col" class="org-left">\(n=n_1 \ times n_2\)</th>
+<th scope="col" class="org-right">0.6</th>
+<th scope="col" class="org-left">rpm</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">σχέση μετάδοσης</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">64.</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Ροπή φορτίου</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">5303</td>
+<td class="org-left">Nm</td>
+</tr>
+
+<tr>
+<td class="org-left">Ροπή στον κοχλία</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">82.859375</td>
+<td class="org-left">Nm</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Σχέση μετάδοσης μειωτήρα</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">6</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Νέα ροπή κινητήρα</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">13.809896</td>
+<td class="org-left">Nm</td>
+</tr>
+
+<tr>
+<td class="org-left">Νέες στροφές κινητήρα</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">230.4</td>
+<td class="org-left">rpm</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Η ροπή είναι μεγάλη και χρησιμοποιείται μειωτήρας 1:6<br />
+</p>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">Ολική σχέση μετάδοσης</th>
+<th scope="col" class="org-right">Βαθμίδες μειωτήρα</th>
+<th scope="col" class="org-right">Σχέση μετάδοσης κάθε σταδίου</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Σχέση μετάδοσης</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">6</td>
+<td class="org-right">2</td>
+<td class="org-right">2.4</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">6</td>
+<td class="org-right">3</td>
+<td class="org-right">1.8</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+Επιλέγεται μειωτήρας 1:6 με 2 βαθμίδες.<br />
+</p>
+
+<p>
+Οι ροπές είναι:<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Ροπή εισόδου</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">13</td>
+<td class="org-left">Nm</td>
+</tr>
+
+<tr>
+<td class="org-left">Ροπή εξόδου</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">82</td>
+<td class="org-left">Nm</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Τα χαρακτηριστικά του μειωτήρα είναι:<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Απόσταση κέντρα</td>
+<td class="org-left">\(R=r_1+r_2\)</td>
+<td class="org-right">100</td>
+<td class="org-left">mm</td>
+</tr>
+
+<tr>
+<td class="org-left">Λόγος σχέσης μετάδοσης</td>
+<td class="org-left">\(lambda = \dfrac{r_1}{r_2}\)</td>
+<td class="org-right">2.4</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Ακτίνα μικρό  γρανάζι</td>
+<td class="org-left">\(r_1=\dfrac{r_1}{\lambda+1}\)</td>
+<td class="org-right">29</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Ακτίνα μεγάλο γρανάζι</td>
+<td class="org-left">\(r_2=R-r_1\)</td>
+<td class="org-right">71</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Ελεγχος λόγου:</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">2.4482759</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="outline-container-org28fbc83" class="outline-4">
+<h4 id="org28fbc83"><span class="section-number-4">1.7.1.</span> Μικρό γρανάζι</h4>
+<div class="outline-text-4" id="text-1-7-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Επιλογή modulus</td>
+<td class="org-left">\(m\)</td>
+<td class="org-right">1.0</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Διάμετρος μικρό γραναζι</td>
+<td class="org-left">\(d_1\)</td>
+<td class="org-right">58</td>
+<td class="org-left">mm</td>
+</tr>
+
+<tr>
+<td class="org-left">Αρ.δοντιων 1</td>
+<td class="org-left">\(z_1=\dfrac{d_1}{m}\)</td>
+<td class="org-right">58.</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">\(z_1\)</td>
+<td class="org-right">39</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Διάμετρος μικρό γρανάζι</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">39.</td>
+<td class="org-left">mm</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org10a11c3" class="outline-4">
+<h4 id="org10a11c3"><span class="section-number-4">1.7.2.</span> Μεγάλο γρανάζι</h4>
+<div class="outline-text-4" id="text-1-7-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Επιλογή modulus</td>
+<td class="org-left">\(m\)</td>
+<td class="org-right">1.0</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Διάμετρος μικρό γραναζι</td>
+<td class="org-left">\(d_1\)</td>
+<td class="org-right">142</td>
+<td class="org-left">mm</td>
+</tr>
+
+<tr>
+<td class="org-left">Αρ.δοντιων 1</td>
+<td class="org-left">\(z_1=\dfrac{d_1}{m}\)</td>
+<td class="org-right">142.</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">\(z_1\)</td>
+<td class="org-right">95</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Διάμετρος μικρό γρανάζι</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">95.</td>
+<td class="org-left">mm</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-orga73842e" class="outline-4">
+<h4 id="orga73842e"><span class="section-number-4">1.7.3.</span> Νέα σχέση μετάδοσης</h4>
+<div class="outline-text-4" id="text-1-7-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Απόσταση κέντρα</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">67.</td>
+<td class="org-left">mm</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Διάμετρος μικρό γρανάζι</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">39</td>
+<td class="org-left">mm</td>
+</tr>
+
+<tr>
+<td class="org-left">Δοντια μικρό  γρανάζι</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">39</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Διάμετρος μεγάλο γρανάζι</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">95</td>
+<td class="org-left">mm</td>
+</tr>
+
+<tr>
+<td class="org-left">Δοντια  μεγάλο γρανάζι</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">95</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Ελεγχος λόγου:</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">2.4358974</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

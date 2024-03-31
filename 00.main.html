@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="el" xml:lang="el">
+<head>
+<!-- 2023-05-03 Τετ 20:49 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>truss</title>
+<meta name="keywords" content="o" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/bigblow_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/bigblow_theme/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/bigblow_theme/css/hideshow.css"/>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/bigblow.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/bigblow_theme/js/hideshow.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<style> #content{max-width:1800px;}</style>
+<style> p{max-width:800px;}</style>
+<style> li{max-width:800px;}</style
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">truss</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org7885f83">1. Υπολογισμός δοκών στήριξης</a>
+<ul>
+<li><a href="#org66af500">1.1. Χωροδικτύωμα</a></li>
+<li><a href="#orgd0a2164">1.2. Σταθερότητα χωροδικτυώματος</a></li>
+<li><a href="#org6e3dafc">1.3. Υπολογίσμός χωρίς τη στήριξη (ΑΒ)</a></li>
+<li><a href="#org5ef6ce9">1.4. 1η προσεγγιση ως προς τις δυνάμεις ως χωροδικτύωμα</a></li>
+<li><a href="#org7befd4e">1.5. Υπολογισμός δυνάμεων στο χωροδικτύωμα</a></li>
+<li><a href="#orgd154b04">1.6. Τεχνικά χαρακτηριστικά χάλυβα</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org7885f83" class="outline-2">
+<h2 id="org7885f83"><span class="section-number-2">1.</span> Υπολογισμός δοκών στήριξης</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Η διάταξη του γερανού είναι χωροδικτύωμα.<br />
+</p>
+</div>
+
+<div id="outline-container-org66af500" class="outline-3">
+<h3 id="org66af500"><span class="section-number-3">1.1.</span> Χωροδικτύωμα</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Αρχικά θεωρείται πως οι προβολοι το γερανου είναι ραβδοι και δέχονται δυνάμεις μόνο σε εφελκυσμό και θλίψη.<br />
+</p>
+
+
+<div id="org17b6da0" class="figure">
+<p><img src="./images/diagram1.jpg" alt="diagram1.jpg" /><br />
+</p>
+</div>
+
+
+<p>
+Οι θέσεις των κόμβων σε αυτή τη φάση είναι προσεγγιστικές για την αρχική σχεδίαση.<br />
+</p>
+
+
+<p>
+Οι δυνάμεις σε κάθε κόμβο (Α), (Β), (C) προέρχονται από εφελκυσμό και θλίψη στην αντίστοιχη διευθυνση της κάθε ράβδου.<br />
+</p>
+
+<p>
+Το άθροισμα των δυνάμεων σε κάθε κόμβο είναι μηδέν, δηλαδή,<br />
+</p>
+
+<p>
+\[\sum Α=0\]<br />
+</p>
+
+<p>
+\[\sum Β=0\]<br />
+</p>
+
+<p>
+\[\sum C=0\]<br />
+</p>
+
+
+
+
+<p>
+Οι δυνάμεις σε κάθε ράβδο μπορεί να είναι εφελκυστικές ή θλιπτικές.<br />
+</p>
+
+
+
+<div id="org3f43d4f" class="figure">
+<p><img src="./images/diagram3.jpg" alt="diagram3.jpg" /><br />
+</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgd0a2164" class="outline-3">
+<h3 id="orgd0a2164"><span class="section-number-3">1.2.</span> Σταθερότητα χωροδικτυώματος</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Υπολογίζεται αν το χωροδικτύωμα είναι στατικά ορισμένο.<br />
+</p>
+
+
+<p>
+<a href="https://www.sjsu.edu/people/steven.vukazich/docs/160.4.3%20Truss%20Stability.pdf">https://www.sjsu.edu/people/steven.vukazich/docs/160.4.3%20Truss%20Stability.pdf</a><br />
+</p>
+
+
+<p>
+<a href="https://en.wikipedia.org/wiki/Truss">https://en.wikipedia.org/wiki/Truss</a><br />
+</p>
+
+<p>
+Ο υπολογισμός γίνεται με βάση την τιμή:<br />
+\[m-2\times j-r\]<br />
+</p>
+
+<p>
+όπου,<br />
+\(m\) o αριθμός των μελών<br />
+\(j\) o αριθμός των κόμβων<br />
+\(r\) ο αριθμός των στηρίξεων.<br />
+</p>
+
+<p>
+Στο γερανό έχουμε:<br />
+</p>
+<table id="orgd85ab24" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">ραβδοι (m)</th>
+<th scope="col" class="org-right">κόμβοι (j)</th>
+<th scope="col" class="org-right">r(αντιδράσεις)</th>
+<th scope="col" class="org-left">m-2j+r</th>
+<th scope="col" class="org-left">m-2j+3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">3</td>
+<td class="org-right">2</td>
+<td class="org-left">-1</td>
+<td class="org-left">0</td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&gt;0 σταθερό</td>
+<td class="org-left">στατικά ορισμενο</td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+Υπολογίζονται:<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Είδος που υπολογίζεται</th>
+<th scope="col" class="org-right">αγνωστοι</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Δυνάμεις (εφελκυσμό-θλίψη) σε 3 ράβδους</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">Δυνάμεις στήριξης( αντιδράσεις στα (Α),(Β)</td>
+<td class="org-right">2</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Αθροισμα αγνωστες τιμές :</td>
+<td class="org-right">5</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Ο κάθε κόμβος δίνει 2 εξισώσεις 1 κατά διευθυνση \(Χ\) και 1 κατά \(Υ\).<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Εξισώσεις</th>
+<th scope="col" class="org-right">κομβοι</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Εξισώσεις Κατά Χ</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">Εξισώσεις Κατά Υ</td>
+<td class="org-right">3</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Δεδομένες εξισώσεις</td>
+<td class="org-right">6</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Το πρόβλημα είναι γραμμικό.<br />
+</p>
+
+<p>
+Έχουμε 1 παραπάνω εξίσωση από άγνωστο.<br />
+</p>
+
+<p>
+Το σύστημα είναι σταθερό αλλά αόριστο.<br />
+</p>
+
+<p>
+Για να υπολογιστεί χρειάζεται ο υπολογισμός και των παραμορφώσεων.<br />
+</p>
+
+<p>
+Πρακτικά θεωρούμε πως το (Β) είναι κύλιση και το κάθετο βάρος του γερανού, λαμβάνεται εξ'όλοκλήρου στο (Α). Το οποιό είναι υπερδιαστασιολόγηση για τη στήριξη (Α).<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6e3dafc" class="outline-3">
+<h3 id="org6e3dafc"><span class="section-number-3">1.3.</span> Υπολογίσμός χωρίς τη στήριξη (ΑΒ)</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Αγνοουμε για λίγο το μέλος (ΑΒ). και θεωρούμε 2 μέλη AC, BC.<br />
+</p>
+<table id="orgfb2198f" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">ραβδοι (m)</th>
+<th scope="col" class="org-right">κόμβοι(j)</th>
+<th scope="col" class="org-right">r(αντιδράσεις)</th>
+<th scope="col" class="org-left">m-2j+r</th>
+<th scope="col" class="org-left">m-2j+3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">2</td>
+<td class="org-left">-2</td>
+<td class="org-left">-1</td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&gt;0 σταθερό</td>
+<td class="org-left">αοριστο</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+Στο γερανό είναι<br />
+</p>
+<table id="org8153ef8" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">ραβδοι (m)</th>
+<th scope="col" class="org-right">κόμβοι(j)</th>
+<th scope="col" class="org-right">r(αντιδράσεις)</th>
+<th scope="col" class="org-left">m-2j+r</th>
+<th scope="col" class="org-left">m-2j+3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">2</td>
+<td class="org-left">-2</td>
+<td class="org-left">-1</td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&gt;0 σταθερό</td>
+<td class="org-left">αοριστο</td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+<p>
+Πρέπει να υπολογίστούν:<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Δυνάμεις (εφελκυσμό-θλίψη) σε 3 ράβδους</td>
+<td class="org-left">2 άγνωστοι</td>
+</tr>
+
+<tr>
+<td class="org-left">Δυνάμεις στήριξης( αντιδράσεις στα (Α),(Β)</td>
+<td class="org-left">2 άγνώστοι</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">4 άγνωστες τιμές</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Ο κάθε κόμβος δίνει 2 εξισώσεις 1 κατά διευθυνση Χ και 1 κατά Υ.<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">κομβοι</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Εξισώσεις Κατά Χ</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">Εξισώσεις Κατά Υ</td>
+<td class="org-right">3</td>
+</tr>
+
+<tr>
+<td class="org-left">Δεδομένες εξισώσεις</td>
+<td class="org-right">6</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+
+
+<div id="outline-container-org5ef6ce9" class="outline-3">
+<h3 id="org5ef6ce9"><span class="section-number-3">1.4.</span> 1η προσεγγιση ως προς τις δυνάμεις ως χωροδικτύωμα</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Μια πρώτη προσέγγιση για των υπολογισμό των δυνάμεων είναι:<br />
+</p>
+
+<p>
+Απο τις δυνάμεις η γνωστή είναι η δύναμη του φορτίου στο ακρο C.<br />
+</p>
+
+<p>
+Από τα τριγωνο των δυνάμεων χρησιμοποιυμε τη γεωμετρική λύση.<br />
+</p>
+
+<p>
+Επειδη η γωνία είναι \(~30^ο\) σχηματιζεται ισόπλευρο τρίγωνο<br />
+</p>
+
+
+<div id="org47b3db0" class="figure">
+<p><img src="./images/diagram2.jpg" alt="diagram2.jpg" /><br />
+</p>
+</div>
+
+
+
+
+<div id="org76b0c61" class="figure">
+<p><img src="./images/diagram4.jpg" alt="diagram4.jpg" /><br />
+</p>
+</div>
+
+
+
+<p>
+Οι δυνάμεις κοπής υπολογίζονται σε κάθε σημείο:<br />
+</p>
+
+<p>
+\[C_2C_3=2\times C_1C_2\]<br />
+\[C_1C_3=1.7\times C_1C_2\]<br />
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-org7befd4e" class="outline-3">
+<h3 id="org7befd4e"><span class="section-number-3">1.5.</span> Υπολογισμός δυνάμεων στο χωροδικτύωμα</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+H δυναμη \(C_y\) είναι η μέγιστη δύναμη που ασκείται στο \(C\), η το πιο απομακρυσμένο σημέιο από τη στήριξη.<br />
+</p>
+
+<p>
+Θεωρείται για τους υπολογισμούς του σχεδιασμου πως αυτή είναι η δυσμενέστερη θέση απο άποψη αντοχής.<br />
+</p>
+
+<p>
+Οι δυναμεις σε αυτό το σημείο είναι από τα δεδομένα του προβλήματος:<br />
+</p>
+
+<table id="orgbebe390" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Είδος δύναμης</th>
+<th scope="col" class="org-right">Τιμή(Ν)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Μέγιστη δυνατότητα ανύψωσης:</td>
+<td class="org-right">20000</td>
+</tr>
+
+<tr>
+<td class="org-left">Συρματόσχοινο:</td>
+<td class="org-right">860</td>
+</tr>
+
+<tr>
+<td class="org-left">Γαντζος</td>
+<td class="org-right">70</td>
+</tr>
+
+<tr>
+<td class="org-left">Βαρος γερανού:</td>
+<td class="org-right">6210</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Αθροισμα:</td>
+<td class="org-right">27140</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">27.140kN</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<p>
+Από τα διαγράμματα και τη γεωμετρια του τριγώνου υπολογίζονται οι δυνάμεις στους υπόλοιπους κόμβους:<br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Δυναμή</th>
+<th scope="col" class="org-left">Τυπος υπολογισμού</th>
+<th scope="col" class="org-left">Τιμή</th>
+<th scope="col" class="org-left">Μονάδες</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">\(C_y\)</td>
+<td class="org-left">δεδομένο</td>
+<td class="org-left">27,140</td>
+<td class="org-left">kN</td>
+<td class="org-left">Βάρος φορτίου</td>
+</tr>
+
+<tr>
+<td class="org-left">\(C\)</td>
+<td class="org-left">\(2\times C_y\)</td>
+<td class="org-left">54,28</td>
+<td class="org-left">kN</td>
+<td class="org-left">εφελκυσμός στη ραβδο (ΒC)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(C_x\)</td>
+<td class="org-left">\(1,7\times C_y\)</td>
+<td class="org-left">92,27</td>
+<td class="org-left">kN</td>
+<td class="org-left">θλίψη στη ραβδο (AC)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">\(B\)</td>
+<td class="org-left">\(C\)</td>
+<td class="org-left">54,28</td>
+<td class="org-left">kN</td>
+<td class="org-left">εφελκυσμός στη ραβδο (ΒC)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(B_x\)</td>
+<td class="org-left">\(0,6\times C\)</td>
+<td class="org-left">32,56</td>
+<td class="org-left">kN</td>
+<td class="org-left">*στηριξη στον τοιχο</td>
+</tr>
+
+<tr>
+<td class="org-left">\(B_y\)</td>
+<td class="org-left">\(0,5 \times B_x\)</td>
+<td class="org-left">0</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">**θεωρουμε κύλιση στο (Β)</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">\(A_x\)</td>
+<td class="org-left">\(C_x\)</td>
+<td class="org-left">46,13</td>
+<td class="org-left">kN</td>
+<td class="org-left">θλίψη στη ραβδο (AC)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(A_y\)</td>
+<td class="org-left">\(C_y\)</td>
+<td class="org-left">27,14</td>
+<td class="org-left">kN</td>
+<td class="org-left">**το βαρος του γερανού</td>
+</tr>
+
+<tr>
+<td class="org-left">\(Α\)</td>
+<td class="org-left">\(2\times A_y\)</td>
+<td class="org-left">54,28</td>
+<td class="org-left">kN</td>
+<td class="org-left">*στηριξη στον τοιχο</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>
+*Οι δυνάμεις στήριξης στον τοίχο χρειάζονται για τον υπολογισμό των κοχλιών βάσεις (post) του γερανού.<br />
+</p>
+
+<p>
+**Το βάρος του γερανού προστίθεται ολόκληρο στη θέση (C), για λόγους υπολογισμού αντοχής. Ενα τμήμα του κάθετου φορτίου θα μπορούσε να λαμβάνεται από το (Β).<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd154b04" class="outline-3">
+<h3 id="orgd154b04"><span class="section-number-3">1.6.</span> Τεχνικά χαρακτηριστικά χάλυβα</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+Τα δομικά στοιχεία του γερανού κατασκευάζονται από χάλύβα.<br />
+</p>
+
+<p>
+Τα τεχνικά χαρακτηριστικά του χάλυβα είναι:<br />
+</p>
+<table id="orgd3ca3cd" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Είδος:</th>
+<th scope="col" class="org-right">Τιμή</th>
+<th scope="col" class="org-left">Μονάδες</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Χάλυβας: St37 / AISI1006</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Παραμόρφωση:</td>
+<td class="org-right">22</td>
+<td class="org-left">%</td>
+</tr>
+
+<tr>
+<td class="org-left">Τάση διαρροής (0.2%) :</td>
+<td class="org-right">370</td>
+<td class="org-left">MPa</td>
+</tr>
+
+<tr>
+<td class="org-left">Μέγιστες διατμητικές τάσεις:</td>
+<td class="org-right">230</td>
+<td class="org-left">MPa</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Πυκνότητα:</td>
+<td class="org-right">7800</td>
+<td class="org-left">\(Kg/m^3\)</td>
+</tr>
+
+<tr>
+<td class="org-left">Elastic modulus</td>
+<td class="org-right">200</td>
+<td class="org-left">\(GPa\)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
